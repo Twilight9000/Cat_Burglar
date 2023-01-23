@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Cube
   m_EditorClassIdentifier: 
   model: {fileID: 3884592393427923003, guid: c928feb31b18df54eb02b220e9a18d13, type: 3}
-  size: {x: 1, y: 1}
+  size: {x: 1, y: 1, z: 1}
   canBePlacedOnTopOf: 0
   offset: {x: 0, y: 0, z: 0}

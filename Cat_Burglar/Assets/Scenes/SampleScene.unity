@@ -293,14 +293,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 10, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!1 &1164574036
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,12 +333,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9d27a0a91c482b45944384abc441ef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TileSize: {x: 1, y: 1}
+  TileSize: {x: 1, y: 1, z: 1}
   objects:
   - {fileID: 11400000, guid: 1dd3e9ea9d352f048baa0aa4150df8a2, type: 2}
   - {fileID: 11400000, guid: db2a257a130a00149b344e58b19d234a, type: 2}
   - {fileID: 11400000, guid: 3bd859f7179a785448dec24c0c24ca02, type: 2}
-  - {fileID: 11400000, guid: a8a6a007eaf12c24580d4371cf9f4820, type: 2}
+  air: {fileID: 11400000, guid: a8a6a007eaf12c24580d4371cf9f4820, type: 2}
   currentObjects: []
 --- !u!64 &1164574038
 MeshCollider:
