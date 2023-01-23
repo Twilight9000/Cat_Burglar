@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Table
   m_EditorClassIdentifier: 
   model: {fileID: 6541546761987199046, guid: ad06bfb819bbe6244b79588389f1a3b4, type: 3}
-  size: {x: 2, y: 2}
-  canBePlacedOnTopOf: 0
+  size: {x: 2, y: 2, z: 1}
+  canBePlacedOnTopOf: 1
   offset: {x: 0.5, y: 0, z: 0.5}

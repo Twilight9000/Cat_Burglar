@@ -6,7 +6,7 @@ using UnityEngine;
 public class ObjectScriptable : ScriptableObject
 {
     public GameObject model;
-    public Vector2 size = new Vector2(1,1);
+    public Vector3 size = new Vector3(1,1,1);
     public bool canBePlacedOnTopOf = false;
     public Vector3 offset;
 }
