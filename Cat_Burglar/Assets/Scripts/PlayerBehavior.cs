@@ -13,38 +13,43 @@ public class PlayerBehavior : MonoBehaviour
 {
     private int currentControls = 1;
     public Camera mainCam;
+    private CameraBehavior camScript;
     private Vector3 middlePos;
 
     // Start is called before the first frame update
     void Start()
     {
         middlePos = transform.position;
+        camScript = mainCam.GetComponent<CameraBehavior>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             currentControls = 1;
+            camScript.currentControls = 1;
 
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             currentControls = 2;
             transform.position = middlePos;
-
+            camScript.currentControls = 2;
 
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             currentControls = 3;
             transform.position = middlePos;
-
+            camScript.currentControls = 3;
         }
+        */
 
-
-        switch (currentControls)
+       /* switch (currentControls)
         {
             case 1:
                 Scheme1();
@@ -58,11 +63,11 @@ public class PlayerBehavior : MonoBehaviour
                 Scheme3();
                 break;
                 
-        }         
+        }     */    
     }
-
+/*
     /// <summary>
-    /// The Vents control scheme.
+    /// The player behaviors for the Vents control scheme.
     /// </summary>
     void Scheme1()
     {
@@ -70,7 +75,7 @@ public class PlayerBehavior : MonoBehaviour
     }
 
     /// <summary>
-    /// The FPS control scheme.
+    /// The player behaviors for the FPS control scheme.
     /// </summary>
     void Scheme2()
     {
@@ -79,7 +84,7 @@ public class PlayerBehavior : MonoBehaviour
     }
 
     /// <summary>
-    /// The Point-And-Click control scheme.
+    /// The player behaviors for the Point-And-Click control scheme.
     /// </summary>
     void Scheme3()
     {
@@ -87,6 +92,6 @@ public class PlayerBehavior : MonoBehaviour
     }
 
 
-
+    */
 
 }
