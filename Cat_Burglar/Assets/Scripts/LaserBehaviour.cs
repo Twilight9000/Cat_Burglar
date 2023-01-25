@@ -9,6 +9,8 @@ public class LaserBehaviour : MonoBehaviour
 
     public GameObject dot;
 
+    public string reflect = "Reflective";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,12 +37,35 @@ public class LaserBehaviour : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                dot.transform.position = hit.point;
+                if (hit.collider.gameObject.CompareTag(reflect))
+                {
+                    ReflectDot(ray.direction, hit.normal, hit.point);
+                }
+                else
+                {
+                    dot.transform.position = hit.point;
+                }
             }
         }
         else
         {
             dot.transform.position = new Vector3(0, -100, 0);
+        }
+    }
+
+    public void ReflectDot(Vector3 inDir, Vector3 normal, Vector3 reflectPoint)
+    {
+        Ray ray = new Ray(reflectPoint, Vector3.Reflect(inDir, normal));
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.collider.gameObject.CompareTag(reflect))
+            {
+                ReflectDot(ray.direction, hit.normal, hit.point);
+            }
+
+            dot.transform.position = hit.point;
         }
     }
 }
