@@ -123,6 +123,33 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 92a674d75fca67f4a841c060f98681c1, type: 2}
+--- !u!1 &6070470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2701354501279557574, guid: bcf496d73fe8fc248abe5b38d6c7a6a8, type: 3}
+  m_PrefabInstance: {fileID: 530506952}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &6070473
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6070470}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.32
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.375
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &115835031
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,6 +979,7 @@ MonoBehaviour:
   cam: {fileID: 0}
   cb: {fileID: 1123416563}
   dot: {fileID: 723232718}
+  reflect: Reflective
 --- !u!114 &1123416563
 MonoBehaviour:
   m_ObjectHideFlags: 0
