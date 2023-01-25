@@ -844,7 +844,7 @@ OffMeshLink:
   m_AreaIndex: 0
   m_AgentTypeID: 0
   m_Start: {fileID: 978286105}
-  m_End: {fileID: 0}
+  m_End: {fileID: 1498489933}
   m_CostOverride: -1
   m_BiDirectional: 1
   m_Activated: 1
@@ -1215,7 +1215,6 @@ GameObject:
   - component: {fileID: 1498489932}
   - component: {fileID: 1498489931}
   - component: {fileID: 1498489930}
-  - component: {fileID: 1498489929}
   m_Layer: 0
   m_Name: Cylinder (1)
   m_TagString: Untagged
@@ -1223,23 +1222,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!191 &1498489929
-OffMeshLink:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1498489928}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_AreaIndex: 0
-  m_AgentTypeID: 0
-  m_Start: {fileID: 978286105}
-  m_End: {fileID: 1498489933}
-  m_CostOverride: -1
-  m_BiDirectional: 1
-  m_Activated: 1
-  m_AutoUpdatePositions: 0
 --- !u!136 &1498489930
 CapsuleCollider:
   m_ObjectHideFlags: 0
