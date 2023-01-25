@@ -42,7 +42,6 @@ public class CameraBehavior : MonoBehaviour
             transform.position = playerBody.position;
             fpsCanvas.SetActive(true);
             Cursor.visible = false;
-
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
