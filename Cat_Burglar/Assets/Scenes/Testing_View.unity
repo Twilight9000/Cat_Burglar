@@ -630,8 +630,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   cb: {fileID: 0}
+  lr: {fileID: 0}
   dot: {fileID: 1294566424}
   reflect: Reflective
+  laserHits: []
 --- !u!120 &595211559
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -652,7 +654,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8a44770e82ce2764c88b87989ce3d8b1, type: 2}
+  - {fileID: 2100000, guid: 3746c122ed1ec18498609fae7a71cf42, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
