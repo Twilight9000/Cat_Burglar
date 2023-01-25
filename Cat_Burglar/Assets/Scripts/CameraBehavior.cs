@@ -34,6 +34,7 @@ public class CameraBehavior : MonoBehaviour
             transform.rotation = ventsList[ventSelected].rotation;
             fpsCanvas.SetActive(false);
             Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
 
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -42,6 +43,7 @@ public class CameraBehavior : MonoBehaviour
             transform.position = playerBody.position;
             fpsCanvas.SetActive(true);
             Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
@@ -49,6 +51,7 @@ public class CameraBehavior : MonoBehaviour
             transform.position = playerBody.position;
             fpsCanvas.SetActive(false);
             Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
         }
 
 
