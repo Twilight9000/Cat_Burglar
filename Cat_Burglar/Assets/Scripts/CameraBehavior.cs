@@ -49,9 +49,9 @@ public class CameraBehavior : MonoBehaviour
         {
             currentControls = 3;
             transform.position = playerBody.position;
-            fpsCanvas.SetActive(false);
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.Confined;
+            fpsCanvas.SetActive(true);
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
 
@@ -122,7 +122,14 @@ public class CameraBehavior : MonoBehaviour
     /// </summary>
     void Scheme3()
     {
+        float MX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+        float MY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
 
+        xRot -= MY;
+        xRot = Mathf.Clamp(xRot, -90f, 90f);
+
+        transform.localRotation = Quaternion.Euler(xRot, 0f, 0f);
+        playerBody.Rotate(Vector3.up * MX);
 
     }
 
