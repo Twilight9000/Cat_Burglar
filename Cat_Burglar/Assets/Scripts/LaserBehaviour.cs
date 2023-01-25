@@ -53,7 +53,7 @@ public class LaserBehaviour : MonoBehaviour
             }
 
             laserHits.Clear();
-            laserHits.Add(cam.transform.position - (Vector3.up * 0.5f));
+            laserHits.Add(cam.transform.position - (cam.transform.up * 0.5f));
 
             if (Physics.Raycast(ray, out hit))
             {
