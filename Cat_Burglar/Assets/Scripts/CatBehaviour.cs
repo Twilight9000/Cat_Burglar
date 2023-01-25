@@ -23,7 +23,10 @@ public class CatBehaviour : MonoBehaviour
         }
         else
         {
-            target = null;
+            if (nAgent.isOnNavMesh)
+            {
+                target = null;
+            }
         }
 
         if(!(target == null))
@@ -34,7 +37,10 @@ public class CatBehaviour : MonoBehaviour
         }
         else
         {
-            nAgent.isStopped = true;
+            if (!nAgent.isOnOffMeshLink)
+            {
+                nAgent.isStopped = true;
+            }
         }
     }
 }
