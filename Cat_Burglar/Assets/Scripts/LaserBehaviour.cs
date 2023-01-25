@@ -81,7 +81,11 @@ public class LaserBehaviour : MonoBehaviour
         else
         {
             dot.transform.position = new Vector3(0, -100, 0);
-            lr.enabled = false;
+
+            if (lr.enabled == true)
+            {
+                lr.enabled = false;
+            }
         }
     }
 
