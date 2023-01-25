@@ -16,17 +16,20 @@ public class LaserBehaviour : MonoBehaviour
     //Necessary initializers
     public Camera cam;
     public CameraBehavior cb;
+    public LineRenderer lr;
 
     //Currently needs to be setup in scene view
     public GameObject dot;
 
     public string reflect = "Reflective";
+    public List<Vector3> laserHits = new List<Vector3>();
 
     // Start is called before the first frame update
     void Start()
     {
         cam = Camera.main;
         cb = GetComponent<CameraBehavior>();
+        lr = GetComponent<LineRenderer>();
     }
 
     // Update is called once per frame
@@ -49,8 +52,14 @@ public class LaserBehaviour : MonoBehaviour
                 ray = new Ray(cam.transform.position, cam.transform.forward);
             }
 
+            laserHits.Clear();
+            laserHits.Add(cam.transform.position - (Vector3.up * 0.5f));
+
             if (Physics.Raycast(ray, out hit))
             {
+                lr.enabled = true;
+                laserHits.Add(hit.point);
+
                 //If reflection is to occur
                 if (hit.collider.gameObject.CompareTag(reflect))
                 {
@@ -61,11 +70,18 @@ public class LaserBehaviour : MonoBehaviour
                 {
                     dot.transform.position = hit.point;
                 }
+
+                for (int x = 0; x < laserHits.Count; x++)
+                {
+                    lr.positionCount = laserHits.Count;
+                    lr.SetPosition(x, laserHits[x]);
+                }
             }
         }
         else
         {
             dot.transform.position = new Vector3(0, -100, 0);
+            lr.enabled = false;
         }
     }
 
@@ -77,6 +93,8 @@ public class LaserBehaviour : MonoBehaviour
         //Just the raycast setup from before
         if (Physics.Raycast(ray, out hit))
         {
+            laserHits.Add(hit.point);
+
             //Except it loops here if it should reflect again
             if (hit.collider.gameObject.CompareTag(reflect))
             {
