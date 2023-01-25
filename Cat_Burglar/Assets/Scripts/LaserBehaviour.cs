@@ -64,8 +64,10 @@ public class LaserBehaviour : MonoBehaviour
             {
                 ReflectDot(ray.direction, hit.normal, hit.point);
             }
-
-            dot.transform.position = hit.point;
+            else
+            {
+                dot.transform.position = hit.point;
+            }
         }
     }
 }
