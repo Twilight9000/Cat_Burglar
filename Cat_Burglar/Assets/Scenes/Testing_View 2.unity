@@ -613,9 +613,13 @@ MonoBehaviour:
   xRot: 0
   playerBody: {fileID: 1856819179}
   ventsList:
-  - {fileID: 2084124713}
-  - {fileID: 1740726624}
+  - {fileID: 2084124712}
+  - {fileID: 1740726623}
   fpsCanvas: {fileID: 2080822595}
+  currentVentXBoundUpper: 0
+  currentVentYBoundUpper: 0
+  currentVentXBoundLower: 0
+  currentVentYBoundLower: 0
 --- !u!114 &595211558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -630,8 +634,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   cb: {fileID: 0}
+  lr: {fileID: 0}
   dot: {fileID: 1294566424}
   reflect: Reflective
+  laserHits: []
 --- !u!120 &595211559
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -2134,8 +2140,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2084124713}
+  - component: {fileID: 2084124714}
   m_Layer: 0
-  m_Name: Vent1
+  m_Name: Vent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2156,3 +2163,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 32.294, y: 134.314, z: 0}
+--- !u!114 &2084124714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084124712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d974b6128ec7614690d7ef37e48b6e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xLowerBound: -40
+  yLowerBound: 0
+  xUpperBound: 20
+  yUpperBound: 0
