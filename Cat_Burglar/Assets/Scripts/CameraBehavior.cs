@@ -15,8 +15,16 @@ public class CameraBehavior : MonoBehaviour
     public float xRot;
     public Transform playerBody;
     private int ventSelected = 0;
-    public List<Transform> ventsList;
+    public List<GameObject> ventsList;
     public GameObject fpsCanvas;
+
+    public float currentVentXBoundUpper;
+    public float currentVentYBoundUpper;
+    public float currentVentXBoundLower;
+    public float currentVentYBoundLower;
+
+    private PointBehavior currentVentScript;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +38,8 @@ public class CameraBehavior : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             currentControls = 1;
-            transform.position = ventsList[ventSelected].position;
-            transform.rotation = ventsList[ventSelected].rotation;
+            transform.position = ventsList[ventSelected].GetComponent<Transform>().position;
+            transform.rotation = ventsList[ventSelected].GetComponent<Transform>().rotation;
             fpsCanvas.SetActive(false);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
@@ -48,10 +56,19 @@ public class CameraBehavior : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             currentControls = 3;
+            playerBody.position = ventsList[ventSelected].GetComponent<Transform>().position;
+            playerBody.rotation = ventsList[ventSelected].GetComponent<Transform>().rotation;
             transform.position = playerBody.position;
             fpsCanvas.SetActive(true);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+
+            currentVentScript = ventsList[ventSelected].GetComponent<PointBehavior>();
+            currentVentXBoundLower = currentVentScript.xLowerBound;
+            currentVentYBoundLower = currentVentScript.yLowerBound;
+            currentVentYBoundUpper = currentVentScript.yUpperBound;
+            currentVentXBoundUpper = currentVentScript.xUpperBound;
+
         }
 
 
@@ -93,8 +110,8 @@ public class CameraBehavior : MonoBehaviour
                 ventSelected = 0;
             }
 
-            transform.position = ventsList[ventSelected].position;
-            transform.rotation = ventsList[ventSelected].rotation;
+            transform.position = ventsList[ventSelected].GetComponent<Transform>().position;
+            transform.rotation = ventsList[ventSelected].GetComponent<Transform>().rotation;
 
         }
 
@@ -118,15 +135,37 @@ public class CameraBehavior : MonoBehaviour
 
 
     /// <summary>
-    /// The camera behaviors for the Point-And-Click control scheme.
+    /// The combined version.
     /// </summary>
     void Scheme3()
     {
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            ventSelected++;
+
+            if (ventSelected > ventsList.Count - 1)
+            {
+                ventSelected = 0;
+            }
+
+            playerBody.position = ventsList[ventSelected].GetComponent<Transform>().position;
+            playerBody.rotation = ventsList[ventSelected].GetComponent<Transform>().rotation;
+
+
+            currentVentScript = ventsList[ventSelected].GetComponent<PointBehavior>();
+            currentVentXBoundLower = currentVentScript.xLowerBound;
+            currentVentYBoundLower = currentVentScript.yLowerBound;
+            currentVentYBoundUpper = currentVentScript.yUpperBound;
+            currentVentXBoundUpper = currentVentScript.xUpperBound;
+
+
+        }
+
         float MX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
         float MY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
 
         xRot -= MY;
-        xRot = Mathf.Clamp(xRot, -90f, 90f);
+        xRot = Mathf.Clamp(xRot, currentVentXBoundLower, currentVentXBoundUpper);
 
         transform.localRotation = Quaternion.Euler(xRot, 0f, 0f);
         playerBody.Rotate(Vector3.up * MX);
