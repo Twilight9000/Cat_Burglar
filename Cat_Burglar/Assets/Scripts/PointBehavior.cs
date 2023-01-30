@@ -15,4 +15,6 @@ public class PointBehavior : MonoBehaviour
     public float xUpperBound;
     public float yUpperBound;
 
+    [Tooltip("Set true if 0 is the direction the camera loosk in general. Else set false.")]
+    public bool looksToZero = true;
 }
