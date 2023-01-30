@@ -10,97 +10,50 @@ using UnityEngine;
 
 public class CameraBehavior : MonoBehaviour
 {
-    public int currentControls = 1;
-    public float sensitivity = 1000f;
-    public float xRot;
-    public Transform playerBody;
     private int ventSelected = 0;
     public List<GameObject> ventsList;
-    public GameObject fpsCanvas;
 
-    public float currentVentXBoundUpper;
-    public float currentVentYBoundUpper;
-    public float currentVentXBoundLower;
-    public float currentVentYBoundLower;
+    public float currentVentXBoundUpper = 360;
+    public float currentVentYBoundUpper = 360;
+    public float currentVentXBoundLower = -360;
+    public float currentVentYBoundLower = -360;
+
+    public GameObject orientation;
 
     private PointBehavior currentVentScript;
+
+    public float sensX = 1000f;
+    public float sensY = 1000f;
+    public float xRot;
+    public float yRot;
 
 
     // Start is called before the first frame update
     void Start()
     {
+
+        //TODO: set orenitation via script 
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        transform.position = ventsList[ventSelected].GetComponent<Transform>().position;
+        transform.rotation = Quaternion.Euler(ventsList[ventSelected].GetComponent<Transform>().rotation.x, ventsList[ventSelected].GetComponent<Transform>().rotation.y, ventsList[ventSelected].GetComponent<Transform>().rotation.z);
+
+      //  transform.position = Vector3.zero;
+       // transform.rotation = Quaternion.Euler(0, 0, 0);
         
+
+        currentVentScript = ventsList[ventSelected].GetComponent<PointBehavior>();
+        currentVentXBoundLower = currentVentScript.xLowerBound;
+        currentVentYBoundLower = currentVentScript.yLowerBound;
+        currentVentYBoundUpper = currentVentScript.yUpperBound;
+        currentVentXBoundUpper = currentVentScript.xUpperBound;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            currentControls = 1;
-            transform.position = ventsList[ventSelected].GetComponent<Transform>().position;
-            transform.rotation = ventsList[ventSelected].GetComponent<Transform>().rotation;
-            fpsCanvas.SetActive(false);
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.Confined;
-
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            currentControls = 2;
-            transform.position = playerBody.position;
-            fpsCanvas.SetActive(true);
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            currentControls = 3;
-            playerBody.position = ventsList[ventSelected].GetComponent<Transform>().position;
-            playerBody.rotation = ventsList[ventSelected].GetComponent<Transform>().rotation;
-            transform.position = playerBody.position;
-            fpsCanvas.SetActive(true);
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-
-            currentVentScript = ventsList[ventSelected].GetComponent<PointBehavior>();
-            currentVentXBoundLower = currentVentScript.xLowerBound;
-            currentVentYBoundLower = currentVentScript.yLowerBound;
-            currentVentYBoundUpper = currentVentScript.yUpperBound;
-            currentVentXBoundUpper = currentVentScript.xUpperBound;
-
-        }
-
-
-
-        switch (currentControls)
-        {
-            case 1:
-                Scheme1();
-
-                break;
-
-            case 2:
-                Scheme2();
-                
-                break;
-
-            case 3:
-                Scheme3();
-                break;
-
-            default:
-                currentControls = 1;
-                break;
-
-        }
-    }
-
-    /// <summary>
-    /// The camera behaviors for the Vents control scheme.
-    /// </summary>
-    void Scheme1()
-    {
         if (Input.GetKeyDown(KeyCode.S))
         {
             ventSelected++;
@@ -110,46 +63,8 @@ public class CameraBehavior : MonoBehaviour
                 ventSelected = 0;
             }
 
-            transform.position = ventsList[ventSelected].GetComponent<Transform>().position;
-            transform.rotation = ventsList[ventSelected].GetComponent<Transform>().rotation;
-
-        }
-
-    }
-
-    /// <summary>
-    /// The camera behaviors for the FPS control scheme.
-    /// </summary>
-    void Scheme2()
-    {
-        float MX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
-        float MY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
-
-        xRot -= MY;
-        xRot = Mathf.Clamp(xRot, -90f, 90f);
-
-        transform.localRotation = Quaternion.Euler(xRot, 0f, 0f);
-        playerBody.Rotate(Vector3.up * MX);
-
-    }
-
-
-    /// <summary>
-    /// The combined version.
-    /// </summary>
-    void Scheme3()
-    {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            ventSelected++;
-
-            if (ventSelected > ventsList.Count - 1)
-            {
-                ventSelected = 0;
-            }
-
-            playerBody.position = ventsList[ventSelected].GetComponent<Transform>().position;
-            playerBody.rotation = ventsList[ventSelected].GetComponent<Transform>().rotation;
+          //  transform.position = ventsList[ventSelected].GetComponent<Transform>().position;
+          //  transform.rotation = ventsList[ventSelected].GetComponent<Transform>().rotation;
 
 
             currentVentScript = ventsList[ventSelected].GetComponent<PointBehavior>();
@@ -157,20 +72,27 @@ public class CameraBehavior : MonoBehaviour
             currentVentYBoundLower = currentVentScript.yLowerBound;
             currentVentYBoundUpper = currentVentScript.yUpperBound;
             currentVentXBoundUpper = currentVentScript.xUpperBound;
-
-
         }
 
-        float MX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
-        float MY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
 
-        xRot -= MY;
+        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+
+        yRot += mouseX;
+
+        xRot -= mouseY;
+
         xRot = Mathf.Clamp(xRot, currentVentXBoundLower, currentVentXBoundUpper);
+        yRot = Mathf.Clamp(yRot, currentVentYBoundLower, currentVentYBoundUpper);
 
-        transform.localRotation = Quaternion.Euler(xRot, 0f, 0f);
-        playerBody.Rotate(Vector3.up * MX);
+        //rotate cam and orientation
+        transform.rotation = Quaternion.Euler(xRot, yRot, 0);
+        
 
     }
+
+
+
 
 }
 

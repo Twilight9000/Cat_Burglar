@@ -41,16 +41,10 @@ public class LaserBehaviour : MonoBehaviour
             Ray ray;
             RaycastHit hit;
 
-            //If in the locked camera positions...
-            if (cb.currentControls == 1 || cb.currentControls == 3)
-            {
-                ray = cam.ScreenPointToRay(Input.mousePosition);
-            }
-            //If in first person...
-            else
-            {
-                ray = new Ray(cam.transform.position, cam.transform.forward);
-            }
+            
+            ray = cam.ScreenPointToRay(Input.mousePosition);
+            
+           
 
             laserHits.Clear();
             laserHits.Add(cam.transform.position - (cam.transform.up * 0.5f));
