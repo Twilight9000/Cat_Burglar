@@ -16,54 +16,78 @@ public class CameraBehavior : MonoBehaviour
     [Tooltip("DO NOT CHANGE ME. IS FOR READING VALUES ONLY.\nThe currently selected vent you are looking out of.")]
     public GameObject currentlySelectedVent;
 
+    /// <summary>
+    /// The currently selected vent; also should be the current index in ventsList.
+    /// </summary>
     private int ventSelected = 0;
-   // public List<GameObject> ventsList;
-    public GameObject[] ventsList;
 
+    /// <summary>
+    /// A list of the vents in the game. Auto-populates upon the game starting up with every item with the "Vents" tag.
+    /// </summary>
+    private GameObject[] ventsList;
+
+    [Tooltip("")]
     public float currentVentXBoundLower = -360;
+
+    [Tooltip("")]
     public float currentVentYBoundLeft = -360;
+
+    [Tooltip("")]
     public float currentVentXBoundUpper = 360;
+
+    [Tooltip("")]
     public float currentVentYBoundRight = 360;
 
-    public GameObject orientation;
-
+    /// <summary>
+    /// The script component of the currently selected vent being looked out of.
+    /// </summary>
     private PointBehavior currentVentScript;
 
+    [Tooltip("The X input senstivity for the mouse.")]
     public float sensX = 1000f;
+
+    [Tooltip("The Y input sensitivity for the mouse.")]
     public float sensY = 1000f;
-    public float xRot;
-    public float yRot;
+
+    /// <summary>
+    /// The amount being moved in the x axis.
+    /// </summary>
+    private float xRot;
+
+    /// <summary>
+    /// The amount being moved in the y axis.
+    /// </summary>
+    private float yRot;
+
+    /// <summary>
+    /// Stores the general direction that the vent is facing. The general center of where the camera should look. 
+    /// </summary>
+    private float relativeZero;
 
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Generates a list of all the vents in the scene, sets the cursor to the correct settings for the FPS, 
+    /// then calls the method for entering a vent in order to place the player in the first vent in the list.
+    /// </summary>
     void Start()
     {
         ventsList = GameObject.FindGameObjectsWithTag("Vent");
         ventSelected = 0;
 
-        //TODO: set orenitation via script 
-
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
         UponEnteringAVent();
 
-        //  transform.position = ventsList[ventSelected].GetComponent<Transform>().position;
-        //  transform.rotation = Quaternion.Euler(ventsList[ventSelected].GetComponent<Transform>().rotation.x, ventsList[ventSelected].GetComponent<Transform>().rotation.y, ventsList[ventSelected].GetComponent<Transform>().rotation.z);
-
-        ////  transform.position = Vector3.zero;
-        // // transform.rotation = Quaternion.Euler(0, 0, 0);
-
-
-        //  currentVentScript = ventsList[ventSelected].GetComponent<PointBehavior>();
-        //  currentVentXBoundLower = currentVentScript.xLowerBound;
-        //  currentVentYBoundLower = currentVentScript.yLowerBound;
-        //  currentVentYBoundUpper = currentVentScript.yUpperBound;
-        //  currentVentXBoundUpper = currentVentScript.xUpperBound;
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Checks for input to change to the next vent. 
+    /// Then, handles looking around with the FPS camera.
+    /// </summary>
     void Update()
     {   
+        //Checks whether or not to change vents and handles what happens when the list needs to loop.
         if (Input.GetKeyDown(KeyCode.S))
         {
             ventSelected++;
@@ -74,72 +98,46 @@ public class CameraBehavior : MonoBehaviour
             }
 
             UponEnteringAVent();
-          //  transform.position = ventsList[ventSelected].GetComponent<Transform>().position;
-          //  transform.rotation = ventsList[ventSelected].GetComponent<Transform>().rotation;
-
-
-            //currentVentScript = ventsList[ventSelected].GetComponent<PointBehavior>();
-            //currentVentXBoundLower = currentVentScript.xLowerBound;
-            //currentVentYBoundLower = currentVentScript.yLowerBound;
-            //currentVentYBoundUpper = currentVentScript.yUpperBound;
-            //currentVentXBoundUpper = currentVentScript.xUpperBound;
-
-            //if (currentVentScript.positiveRange)
-            //{
-            //    transform.rotation = Quaternion.Euler(transform.rotation.x, 190, 0);
-            //}
-            //else
-            //{
-            //    transform.rotation = Quaternion.Euler(transform.rotation.x, -10, 0);
-            //}
+          
         }
 
-        float relativeZero = ventsList[ventSelected].transform.rotation.eulerAngles.y;
 
+        //How the FPS camera looks around
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
         yRot += mouseX;
-
         xRot -= mouseY;
 
         xRot = Mathf.Clamp(xRot, currentVentXBoundLower, currentVentXBoundUpper);
 
-        //
-        //jfc i have to write my own clamp i think oh no
-
         float modifiedYLower = 0;
         float modifiedYUpper = 0;
 
-        //used to read the relative degree amount im the inspector.
+        //used to read the y amount the camera is away from the general direction the camera is pointing in the inspector.
+        rotFromRelativeZero = Mathf.Abs(relativeZero - transform.rotation.eulerAngles.y);
+
+        //The values for the y clamp are handled differently depending on what direction relative zero is.
         if (currentVentScript.looksTo0)
         {
-            rotFromRelativeZero = Mathf.Abs(relativeZero - transform.rotation.eulerAngles.y);
-
              modifiedYLower = relativeZero - currentVentYBoundLeft;
              modifiedYUpper = relativeZero + currentVentYBoundRight;
 
         }
         else if (currentVentScript.looksTo180)
         {
-            rotFromRelativeZero = Mathf.Abs(relativeZero - transform.rotation.eulerAngles.y);
-
              modifiedYLower = relativeZero - currentVentYBoundLeft;
              modifiedYUpper = 360 - (currentVentYBoundRight - relativeZero);
 
         }
         else if (currentVentScript.looksTo90)
         {
-            rotFromRelativeZero = Mathf.Abs(relativeZero - transform.rotation.eulerAngles.y);
-
             modifiedYLower = -(relativeZero - currentVentYBoundLeft);
             modifiedYUpper = relativeZero + currentVentYBoundRight;
 
         }
         else if (currentVentScript.looksToNegative90)
         {
-            rotFromRelativeZero = Mathf.Abs(relativeZero - transform.rotation.eulerAngles.y);
-
             modifiedYLower = -(relativeZero - currentVentYBoundLeft);
             modifiedYUpper = (relativeZero + currentVentYBoundRight);
 
@@ -147,29 +145,25 @@ public class CameraBehavior : MonoBehaviour
         else
         {
             print("ERROR! The current vent does not have a direction selected. :(");
-        }
 
+        }
 
         yRot = Mathf.Clamp(yRot, modifiedYLower, modifiedYUpper);
 
-        //rotate cam and orientation
+        //finally, rotate camera
         transform.rotation = Quaternion.Euler(xRot, yRot, 0);
         
-
     }
 
     /// <summary>
     /// This is just to store duplicate code mostly, it happens at the start and every time a vent is switched to. 
+    /// It moves the camera and ests its boundary values.
     /// </summary>
     void UponEnteringAVent()
     {
 
         transform.position = ventsList[ventSelected].GetComponent<Transform>().position;
         transform.rotation = Quaternion.Euler(ventsList[ventSelected].GetComponent<Transform>().rotation.x, ventsList[ventSelected].GetComponent<Transform>().rotation.y, ventsList[ventSelected].GetComponent<Transform>().rotation.z);
-
-        //  transform.position = Vector3.zero;
-        // transform.rotation = Quaternion.Euler(0, 0, 0);
-
 
         currentVentScript = ventsList[ventSelected].GetComponent<PointBehavior>();
         currentVentXBoundLower = currentVentScript.xLowerBound;
@@ -186,12 +180,10 @@ public class CameraBehavior : MonoBehaviour
             transform.rotation = Quaternion.Euler(transform.rotation.x, -1, 0);
         }
 
-
         currentlySelectedVent = ventsList[ventSelected];
 
+        relativeZero = ventsList[ventSelected].transform.rotation.eulerAngles.y;
     }
-
-
 
 }
 
