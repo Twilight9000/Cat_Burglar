@@ -15,6 +15,16 @@ public class PointBehavior : MonoBehaviour
     public float xUpperBound;
     public float yUpperBound;
 
-    [Tooltip("Set true if 0 is the direction the camera loosk in general. Else set false.")]
-    public bool looksToZero = true;
+    [Tooltip("Set true if 0 is the direction the camera looks in general. Else set false.")]
+    public bool looksTo0 = false;
+
+    [Tooltip("Set true if 90 is the direction the camera looks in general. Else set false.")]
+    public bool looksTo90 = false;
+
+    [Tooltip("Set true if 180/-180 is the direction the camera looks in general. Else set false.")]
+    public bool looksTo180 = false;
+
+    [Tooltip("Set true if -90 is the direction the camera looks in general. Else set false.")]
+    public bool looksToNegative90 = false;
+
 }

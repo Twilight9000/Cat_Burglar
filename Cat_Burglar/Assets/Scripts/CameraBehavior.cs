@@ -106,23 +106,45 @@ public class CameraBehavior : MonoBehaviour
         //
         //jfc i have to write my own clamp i think oh no
 
-        float modifiedYLower;
-        float modifiedYUpper;
+        float modifiedYLower = 0;
+        float modifiedYUpper = 0;
 
         //used to read the relative degree amount im the inspector.
-        if (currentVentScript.looksToZero)
+        if (currentVentScript.looksTo0)
         {
             rotFromRelativeZero = Mathf.Abs(relativeZero - transform.rotation.eulerAngles.y);
 
              modifiedYLower = relativeZero - currentVentYBoundLower;
              modifiedYUpper = relativeZero + currentVentYBoundUpper;
+
         }
-        else
+        else if (currentVentScript.looksTo180)
         {
             rotFromRelativeZero = Mathf.Abs(relativeZero - transform.rotation.eulerAngles.y);
 
              modifiedYLower = relativeZero - currentVentYBoundLower;
              modifiedYUpper = 360 - (currentVentYBoundUpper - relativeZero);
+
+        }
+        else if (currentVentScript.looksTo90)
+        {
+            rotFromRelativeZero = Mathf.Abs(relativeZero - transform.rotation.eulerAngles.y);
+
+            modifiedYLower = -(relativeZero - currentVentYBoundLower);
+            modifiedYUpper = relativeZero + currentVentYBoundUpper;
+
+        }
+        else if (currentVentScript.looksToNegative90)
+        {
+            rotFromRelativeZero = Mathf.Abs(relativeZero - transform.rotation.eulerAngles.y);
+
+            modifiedYLower = -(relativeZero - currentVentYBoundLower);
+            modifiedYUpper = (relativeZero + currentVentYBoundUpper);
+
+        }
+        else
+        {
+            print("ERROR! The current vent does not have a direction selected. :(");
         }
 
 
@@ -153,7 +175,7 @@ public class CameraBehavior : MonoBehaviour
         currentVentYBoundUpper = currentVentScript.yUpperBound;
         currentVentXBoundUpper = currentVentScript.xUpperBound;
 
-        if (currentVentScript.looksToZero)
+        if (currentVentScript.looksTo0)
         {
             transform.rotation = Quaternion.Euler(transform.rotation.x, 189, 0);
         }
