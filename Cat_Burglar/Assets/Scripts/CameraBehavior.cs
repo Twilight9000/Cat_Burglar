@@ -10,9 +10,11 @@ using UnityEngine;
 
 public class CameraBehavior : MonoBehaviour
 {
-    [Tooltip("DO NOT CHANGE ME. IS FOR READING VALUES ONLY")]
+    [Tooltip("DO NOT CHANGE ME. IS FOR READING VALUES ONLY.\nThe Y distance rotated away from the relative center of where the camera points.")]
     public float rotFromRelativeZero;
 
+    [Tooltip("DO NOT CHANGE ME. IS FOR READING VALUES ONLY.\nThe currently selected vent you are looking out of.")]
+    public GameObject currentlySelectedVent;
 
     private int ventSelected = 0;
    // public List<GameObject> ventsList;
@@ -183,6 +185,9 @@ public class CameraBehavior : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(transform.rotation.x, -1, 0);
         }
+
+
+        currentlySelectedVent = ventsList[ventSelected];
 
     }
 
