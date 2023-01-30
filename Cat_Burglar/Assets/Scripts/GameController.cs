@@ -11,11 +11,18 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public string SceneName;
-    public GameObject PauseMenu;
+    public GameObject PauseMenu, DiamondObj, WinText;
+    public DiamondBehaviour objRef;
 
     private void Start()
     {
         PauseMenu.SetActive(false);
+        WinText.SetActive(false);
+
+        if (DiamondObj != null)
+        {
+            objRef = DiamondObj.GetComponent<DiamondBehaviour>();
+        }
     }
 
     // Update is called once per frame
@@ -30,6 +37,14 @@ public class GameController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             ChangeScene(SceneName);
+        }
+
+        if (DiamondObj != null)
+        {
+            if(objRef.isStolen == true)
+            {
+                WinText.SetActive(true);
+            }
         }
     }
     
