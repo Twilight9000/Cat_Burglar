@@ -326,16 +326,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7581518307281570865, guid: 658e8cbac7919054dbb0f743443d2c17, type: 3}
+      propertyPath: yLeftBound
+      value: 213
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581518307281570865, guid: 658e8cbac7919054dbb0f743443d2c17, type: 3}
       propertyPath: xLowerBound
       value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 7581518307281570865, guid: 658e8cbac7919054dbb0f743443d2c17, type: 3}
       propertyPath: xUpperBound
-      value: 80
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7581518307281570865, guid: 658e8cbac7919054dbb0f743443d2c17, type: 3}
       propertyPath: yLowerBound
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581518307281570865, guid: 658e8cbac7919054dbb0f743443d2c17, type: 3}
+      propertyPath: yRightBound
+      value: 330
       objectReference: {fileID: 0}
     - target: {fileID: 7581518307281570865, guid: 658e8cbac7919054dbb0f743443d2c17, type: 3}
       propertyPath: yUpperBound
@@ -411,6 +419,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7581518307281570865, guid: 658e8cbac7919054dbb0f743443d2c17, type: 3}
+      propertyPath: yLeftBound
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581518307281570865, guid: 658e8cbac7919054dbb0f743443d2c17, type: 3}
       propertyPath: looksToZero
       value: 0
       objectReference: {fileID: 0}
@@ -425,6 +437,10 @@ PrefabInstance:
     - target: {fileID: 7581518307281570865, guid: 658e8cbac7919054dbb0f743443d2c17, type: 3}
       propertyPath: yLowerBound
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581518307281570865, guid: 658e8cbac7919054dbb0f743443d2c17, type: 3}
+      propertyPath: yRightBound
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 7581518307281570865, guid: 658e8cbac7919054dbb0f743443d2c17, type: 3}
       propertyPath: yUpperBound
@@ -597,6 +613,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7581518307281570865, guid: 658e8cbac7919054dbb0f743443d2c17, type: 3}
+      propertyPath: yLeftBound
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581518307281570865, guid: 658e8cbac7919054dbb0f743443d2c17, type: 3}
       propertyPath: xLowerBound
       value: -18
       objectReference: {fileID: 0}
@@ -607,6 +627,10 @@ PrefabInstance:
     - target: {fileID: 7581518307281570865, guid: 658e8cbac7919054dbb0f743443d2c17, type: 3}
       propertyPath: yLowerBound
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581518307281570865, guid: 658e8cbac7919054dbb0f743443d2c17, type: 3}
+      propertyPath: yRightBound
+      value: 134
       objectReference: {fileID: 0}
     - target: {fileID: 7581518307281570865, guid: 658e8cbac7919054dbb0f743443d2c17, type: 3}
       propertyPath: yUpperBound
@@ -862,10 +886,10 @@ MonoBehaviour:
   rotFromRelativeZero: 0
   ventsList:
   - {fileID: 2084124712}
-  currentVentXBoundUpper: 0
-  currentVentYBoundUpper: 0
   currentVentXBoundLower: 0
-  currentVentYBoundLower: 0
+  currentVentYBoundLeft: -360
+  currentVentXBoundUpper: 0
+  currentVentYBoundRight: 360
   orientation: {fileID: 0}
   sensX: 1000
   sensY: 1000
@@ -2363,6 +2387,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7581518307281570865, guid: 658e8cbac7919054dbb0f743443d2c17, type: 3}
+      propertyPath: looksTo0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581518307281570865, guid: 658e8cbac7919054dbb0f743443d2c17, type: 3}
+      propertyPath: yLeftBound
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581518307281570865, guid: 658e8cbac7919054dbb0f743443d2c17, type: 3}
       propertyPath: xLowerBound
       value: -10
       objectReference: {fileID: 0}
@@ -2373,6 +2405,10 @@ PrefabInstance:
     - target: {fileID: 7581518307281570865, guid: 658e8cbac7919054dbb0f743443d2c17, type: 3}
       propertyPath: yLowerBound
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581518307281570865, guid: 658e8cbac7919054dbb0f743443d2c17, type: 3}
+      propertyPath: yRightBound
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7581518307281570865, guid: 658e8cbac7919054dbb0f743443d2c17, type: 3}
       propertyPath: yUpperBound

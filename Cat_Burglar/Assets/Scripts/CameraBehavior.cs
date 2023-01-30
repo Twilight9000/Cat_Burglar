@@ -18,10 +18,10 @@ public class CameraBehavior : MonoBehaviour
    // public List<GameObject> ventsList;
     public GameObject[] ventsList;
 
-    public float currentVentXBoundUpper = 360;
-    public float currentVentYBoundUpper = 360;
     public float currentVentXBoundLower = -360;
-    public float currentVentYBoundLower = -360;
+    public float currentVentYBoundLeft = -360;
+    public float currentVentXBoundUpper = 360;
+    public float currentVentYBoundRight = 360;
 
     public GameObject orientation;
 
@@ -114,32 +114,32 @@ public class CameraBehavior : MonoBehaviour
         {
             rotFromRelativeZero = Mathf.Abs(relativeZero - transform.rotation.eulerAngles.y);
 
-             modifiedYLower = relativeZero - currentVentYBoundLower;
-             modifiedYUpper = relativeZero + currentVentYBoundUpper;
+             modifiedYLower = relativeZero - currentVentYBoundLeft;
+             modifiedYUpper = relativeZero + currentVentYBoundRight;
 
         }
         else if (currentVentScript.looksTo180)
         {
             rotFromRelativeZero = Mathf.Abs(relativeZero - transform.rotation.eulerAngles.y);
 
-             modifiedYLower = relativeZero - currentVentYBoundLower;
-             modifiedYUpper = 360 - (currentVentYBoundUpper - relativeZero);
+             modifiedYLower = relativeZero - currentVentYBoundLeft;
+             modifiedYUpper = 360 - (currentVentYBoundRight - relativeZero);
 
         }
         else if (currentVentScript.looksTo90)
         {
             rotFromRelativeZero = Mathf.Abs(relativeZero - transform.rotation.eulerAngles.y);
 
-            modifiedYLower = -(relativeZero - currentVentYBoundLower);
-            modifiedYUpper = relativeZero + currentVentYBoundUpper;
+            modifiedYLower = -(relativeZero - currentVentYBoundLeft);
+            modifiedYUpper = relativeZero + currentVentYBoundRight;
 
         }
         else if (currentVentScript.looksToNegative90)
         {
             rotFromRelativeZero = Mathf.Abs(relativeZero - transform.rotation.eulerAngles.y);
 
-            modifiedYLower = -(relativeZero - currentVentYBoundLower);
-            modifiedYUpper = (relativeZero + currentVentYBoundUpper);
+            modifiedYLower = -(relativeZero - currentVentYBoundLeft);
+            modifiedYUpper = (relativeZero + currentVentYBoundRight);
 
         }
         else
@@ -171,8 +171,8 @@ public class CameraBehavior : MonoBehaviour
 
         currentVentScript = ventsList[ventSelected].GetComponent<PointBehavior>();
         currentVentXBoundLower = currentVentScript.xLowerBound;
-        currentVentYBoundLower = currentVentScript.yLowerBound;
-        currentVentYBoundUpper = currentVentScript.yUpperBound;
+        currentVentYBoundLeft = currentVentScript.yLeftBound;
+        currentVentYBoundRight = currentVentScript.yRightBound;
         currentVentXBoundUpper = currentVentScript.xUpperBound;
 
         if (currentVentScript.looksTo0)

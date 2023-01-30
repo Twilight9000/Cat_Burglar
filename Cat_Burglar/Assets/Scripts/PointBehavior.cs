@@ -11,9 +11,9 @@ using UnityEngine;
 public class PointBehavior : MonoBehaviour
 {
     public float xLowerBound;
-    public float yLowerBound;
+    public float yLeftBound;
     public float xUpperBound;
-    public float yUpperBound;
+    public float yRightBound;
 
     [Tooltip("Set true if 0 is the direction the camera looks in general. Else set false.")]
     public bool looksTo0 = false;
