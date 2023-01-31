@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -732,6 +732,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Proto_Building_Block_Wall_Window_02_Atlased
       objectReference: {fileID: 0}
+    - target: {fileID: 3968162283990093699, guid: 1fcefb60796f81249a6750d4a116a663, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3968162283990093699, guid: 1fcefb60796f81249a6750d4a116a663, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 4348909603533444409, guid: 1fcefb60796f81249a6750d4a116a663, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -796,6 +804,14 @@ PrefabInstance:
     - target: {fileID: 285964429742753792, guid: bb0af3b3cc242b94095c4560b823937a, type: 3}
       propertyPath: m_Name
       value: Pillar (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 285964429742753792, guid: bb0af3b3cc242b94095c4560b823937a, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 285964429742753792, guid: bb0af3b3cc242b94095c4560b823937a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7450681013403905750, guid: bb0af3b3cc242b94095c4560b823937a, type: 3}
       propertyPath: m_RootOrder
@@ -947,6 +963,14 @@ PrefabInstance:
     - target: {fileID: 285964429742753792, guid: bb0af3b3cc242b94095c4560b823937a, type: 3}
       propertyPath: m_Name
       value: Pillar (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 285964429742753792, guid: bb0af3b3cc242b94095c4560b823937a, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 285964429742753792, guid: bb0af3b3cc242b94095c4560b823937a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7450681013403905750, guid: bb0af3b3cc242b94095c4560b823937a, type: 3}
       propertyPath: m_RootOrder
@@ -1351,6 +1375,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Proto_Wooden_Crate_01_Atlased (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6063291168559988429, guid: 85c0d02b4d947b7449be8d40871f2729, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063291168559988429, guid: 85c0d02b4d947b7449be8d40871f2729, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 6876701540794999927, guid: 85c0d02b4d947b7449be8d40871f2729, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1499,6 +1531,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Proto_Wooden_Crate_01_Atlased (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6063291168559988429, guid: 85c0d02b4d947b7449be8d40871f2729, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063291168559988429, guid: 85c0d02b4d947b7449be8d40871f2729, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 6876701540794999927, guid: 85c0d02b4d947b7449be8d40871f2729, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1645,6 +1685,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 1306108393540484537, guid: 38c2e7ec87249a740a586df574b2705b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306108393540484537, guid: 38c2e7ec87249a740a586df574b2705b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 1831814982423193347, guid: 38c2e7ec87249a740a586df574b2705b, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1713,6 +1761,14 @@ PrefabInstance:
     - target: {fileID: 1306108393540484537, guid: 38c2e7ec87249a740a586df574b2705b, type: 3}
       propertyPath: m_Name
       value: Wall (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306108393540484537, guid: 38c2e7ec87249a740a586df574b2705b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306108393540484537, guid: 38c2e7ec87249a740a586df574b2705b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1831814982423193347, guid: 38c2e7ec87249a740a586df574b2705b, type: 3}
       propertyPath: m_RootOrder
@@ -2153,6 +2209,14 @@ PrefabInstance:
     - target: {fileID: 6063291168559988429, guid: 85c0d02b4d947b7449be8d40871f2729, type: 3}
       propertyPath: m_Name
       value: Proto_Wooden_Crate_01_Atlased (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063291168559988429, guid: 85c0d02b4d947b7449be8d40871f2729, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063291168559988429, guid: 85c0d02b4d947b7449be8d40871f2729, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6876701540794999927, guid: 85c0d02b4d947b7449be8d40871f2729, type: 3}
       propertyPath: m_RootOrder
@@ -2653,6 +2717,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pillar
       objectReference: {fileID: 0}
+    - target: {fileID: 285964429742753792, guid: bb0af3b3cc242b94095c4560b823937a, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 285964429742753792, guid: bb0af3b3cc242b94095c4560b823937a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 7450681013403905750, guid: bb0af3b3cc242b94095c4560b823937a, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2928,6 +3000,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Proto_Wooden_Crate_01_Atlased
       objectReference: {fileID: 0}
+    - target: {fileID: 6063291168559988429, guid: 85c0d02b4d947b7449be8d40871f2729, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063291168559988429, guid: 85c0d02b4d947b7449be8d40871f2729, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 6876701540794999927, guid: 85c0d02b4d947b7449be8d40871f2729, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3095,6 +3175,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Proto_Wooden_Crate_01_Atlased (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6063291168559988429, guid: 85c0d02b4d947b7449be8d40871f2729, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063291168559988429, guid: 85c0d02b4d947b7449be8d40871f2729, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 6876701540794999927, guid: 85c0d02b4d947b7449be8d40871f2729, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -3163,6 +3251,14 @@ PrefabInstance:
     - target: {fileID: 285964429742753792, guid: bb0af3b3cc242b94095c4560b823937a, type: 3}
       propertyPath: m_Name
       value: Pillar (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 285964429742753792, guid: bb0af3b3cc242b94095c4560b823937a, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 285964429742753792, guid: bb0af3b3cc242b94095c4560b823937a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7450681013403905750, guid: bb0af3b3cc242b94095c4560b823937a, type: 3}
       propertyPath: m_RootOrder
@@ -3289,6 +3385,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Proto_Block_Column_Square_01_Atlased
       objectReference: {fileID: 0}
+    - target: {fileID: 872029072013818601, guid: 790a16c999db75244b2d23fd9994ab6f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 872029072013818601, guid: 790a16c999db75244b2d23fd9994ab6f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 790a16c999db75244b2d23fd9994ab6f, type: 3}
 --- !u!1001 &1654694294
@@ -3301,6 +3405,14 @@ PrefabInstance:
     - target: {fileID: 6063291168559988429, guid: 85c0d02b4d947b7449be8d40871f2729, type: 3}
       propertyPath: m_Name
       value: Proto_Wooden_Crate_01_Atlased (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063291168559988429, guid: 85c0d02b4d947b7449be8d40871f2729, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063291168559988429, guid: 85c0d02b4d947b7449be8d40871f2729, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6876701540794999927, guid: 85c0d02b4d947b7449be8d40871f2729, type: 3}
       propertyPath: m_RootOrder
@@ -3751,6 +3863,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Proto_Building_Block_Wall_Window_02_Atlased (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3968162283990093699, guid: 1fcefb60796f81249a6750d4a116a663, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 4348909603533444409, guid: 1fcefb60796f81249a6750d4a116a663, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -3960,7 +4076,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!64 &1866407077
 MeshCollider:
@@ -4118,6 +4234,14 @@ PrefabInstance:
     - target: {fileID: 6063291168559988429, guid: 85c0d02b4d947b7449be8d40871f2729, type: 3}
       propertyPath: m_Name
       value: Proto_Wooden_Crate_01_Atlased (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063291168559988429, guid: 85c0d02b4d947b7449be8d40871f2729, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063291168559988429, guid: 85c0d02b4d947b7449be8d40871f2729, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6876701540794999927, guid: 85c0d02b4d947b7449be8d40871f2729, type: 3}
       propertyPath: m_RootOrder
