@@ -41,7 +41,7 @@ public class ControlledKnockDown : MonoBehaviour
 
     IEnumerator WaitForToTurnStatic()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(5f);
         rb.constraints = RigidbodyConstraints.FreezeAll;
     }
 
