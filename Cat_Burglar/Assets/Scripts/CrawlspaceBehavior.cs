@@ -16,9 +16,8 @@ public class CrawlspaceBehavior : MonoBehaviour
     [Tooltip("If the laser is touching this crawlspace, set true. Otherwise should be false.")]
     public bool isIndicated = false;
 
-    [Tooltip("This needs to be set to where the cat appears when this crawlspace is teleported to.")]
-    public Vector3 telePosition;
-
+     [Tooltip("This needs to be set to where the cat appears when this crawlspace is teleported to.")]
+     public Vector3 telePosition;
 
     /// <summary>
     /// Checks player collision and if line is indicating the crawlspace.
@@ -26,15 +25,32 @@ public class CrawlspaceBehavior : MonoBehaviour
     /// <param name="collision">The object being collided with.</param>
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.tag.Equals("Player"))
         {         
             if (isIndicated)
             {
                 //teleport cat
-                collision.gameObject.transform.position = matchingCrawlspace.GetComponent<CrawlspaceBehavior>().telePosition;
+                // collision.gameObject.transform.parent.transform.position = new Vector3(matchingScript.teleX, matchingScript.teleY, matchingScript.teleZ);
+                collision.gameObject.transform.parent.transform.position = matchingCrawlspace.GetComponent<CrawlspaceBehavior>().telePosition;
+              //  print("aaaaaaaaaaa");
 
             }
         }   
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag.Equals("Player"))
+        {
+            if (isIndicated)
+            {
+                //teleport cat
+                // collision.gameObject.transform.parent.transform.position = new Vector3(matchingScript.teleX, matchingScript.teleY, matchingScript.teleZ);
+                collision.gameObject.transform.parent.transform.position = matchingCrawlspace.GetComponent<CrawlspaceBehavior>().telePosition;
+               // print("aaaaaaaaaaa");
+
+            }
+        }
     }
 
 }

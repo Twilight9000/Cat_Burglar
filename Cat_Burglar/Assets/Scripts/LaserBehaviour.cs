@@ -76,6 +76,7 @@ public class LaserBehaviour : MonoBehaviour
                 {
                     mostRecentCrawlspace = hit.collider.gameObject;
                     mostRecentCrawlspace.GetComponent<CrawlspaceBehavior>().isIndicated = true;
+                 //   print("AAAAAAAAAA");
 
                 }
                 else
