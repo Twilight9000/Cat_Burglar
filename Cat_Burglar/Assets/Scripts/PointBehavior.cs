@@ -27,4 +27,18 @@ public class PointBehavior : MonoBehaviour
     [Tooltip("Set true if -90 is the direction the camera looks in general. Else set false.")]
     public bool looksToNegative90 = false;
 
+    void Awake()
+    {
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
+    }
+
+    void OnDestroy()
+    {
+        GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
+    }
+
+    private void OnGameStateChanged(GameState newGameState)
+    {
+        enabled = newGameState == GameState.Gameplay;
+    }
 }

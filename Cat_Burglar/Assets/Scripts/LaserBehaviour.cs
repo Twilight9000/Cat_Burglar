@@ -30,6 +30,16 @@ public class LaserBehaviour : MonoBehaviour
     public string reflect = "Reflective";
     public List<Vector3> laserHits = new List<Vector3>();
 
+    void Awake()
+    {
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
+    }
+
+    void OnDestroy()
+    {
+        GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -128,5 +138,10 @@ public class LaserBehaviour : MonoBehaviour
                 dot.transform.position = hit.point;
             }
         }
+    }
+
+    private void OnGameStateChanged(GameState newGameState)
+    {
+        enabled = newGameState == GameState.Gameplay;
     }
 }

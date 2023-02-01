@@ -9,6 +9,16 @@ public class CatBehaviour : MonoBehaviour
     Vector3 destination;
     NavMeshAgent nAgent;
 
+    void Awake()
+    {
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
+    }
+
+    void OnDestroy()
+    {
+        GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
+    }
+
     void Start()
     {
         nAgent = GetComponent<NavMeshAgent>();
@@ -42,5 +52,10 @@ public class CatBehaviour : MonoBehaviour
                 nAgent.isStopped = true;
             }
         }
+    }
+
+    private void OnGameStateChanged(GameState newGameState)
+    {
+        enabled = newGameState == GameState.Gameplay;
     }
 }

@@ -60,10 +60,14 @@ public class GameController : MonoBehaviour
         if (PauseMenu.activeInHierarchy)
         {
             PauseMenu.SetActive(false);
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
         else
         {
             PauseMenu.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 

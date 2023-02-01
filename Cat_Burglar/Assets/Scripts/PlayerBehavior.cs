@@ -16,12 +16,27 @@ public class PlayerBehavior : MonoBehaviour
     private CameraBehavior camScript;
     private Vector3 middlePos;
 
+    void Awake()
+    {
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
+    }
+
+    void OnDestroy()
+    {
+        GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         middlePos = transform.position;
         camScript = mainCam.GetComponent<CameraBehavior>();
 
+    }
+
+    private void OnGameStateChanged(GameState newGameState)
+    {
+        enabled = newGameState == GameState.Gameplay;
     }
 
     // Update is called once per frame

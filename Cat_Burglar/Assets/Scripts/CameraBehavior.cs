@@ -64,6 +64,15 @@ public class CameraBehavior : MonoBehaviour
     /// </summary>
     private float relativeZero;
 
+    void Awake()
+    {
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
+    }
+
+    void OnDestroy()
+    {
+        GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
+    }
 
     /// <summary>
     /// Generates a list of all the vents in the scene, sets the cursor to the correct settings for the FPS, 
@@ -185,5 +194,9 @@ public class CameraBehavior : MonoBehaviour
         relativeZero = ventsList[ventSelected].transform.rotation.eulerAngles.y;
     }
 
+    private void OnGameStateChanged(GameState newGameState)
+    {
+        enabled = newGameState == GameState.Gameplay;
+    }
 }
 
