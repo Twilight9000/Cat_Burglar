@@ -29,9 +29,9 @@ public class CrawlspaceBehavior : MonoBehaviour
         {         
             if (isIndicated)
             {
+                collision.gameObject.GetComponent<CatBehaviour>().nAgent.Warp(matchingCrawlspace.GetComponent<CrawlspaceBehavior>().telePosition);
                 //teleport cat
                 // collision.gameObject.transform.parent.transform.position = new Vector3(matchingScript.teleX, matchingScript.teleY, matchingScript.teleZ);
-                collision.gameObject.transform.parent.transform.position = matchingCrawlspace.GetComponent<CrawlspaceBehavior>().telePosition;
               //  print("aaaaaaaaaaa");
 
             }

@@ -7,7 +7,7 @@ public class CatBehaviour : MonoBehaviour
 {
     public Transform target;
     Vector3 destination;
-    NavMeshAgent nAgent;
+    public NavMeshAgent nAgent;
 
     void Awake()
     {
