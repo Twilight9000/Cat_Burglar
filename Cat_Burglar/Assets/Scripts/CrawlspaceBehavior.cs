@@ -13,22 +13,17 @@ public class CrawlspaceBehavior : MonoBehaviour
     [Tooltip("Needs to be set to the matching crawlspace that is the 'other side' of the imaginary tunnel connecting them.")]
     public GameObject matchingCrawlspace;
 
-    /// <summary>
-    /// If the laser is touching this crawlspace, set true. Otherwise should be false.
-    /// </summary>
-    private bool isIndicated = false;
+    [Tooltip("If the laser is touching this crawlspace, set true. Otherwise should be false.")]
+    public bool isIndicated = false;
 
-    [Tooltip("This is where the cat appears when this crawlspace is teleported to.")]
+    [Tooltip("This needs to be set to where the cat appears when this crawlspace is teleported to.")]
     public Vector3 telePosition;
 
 
     /// <summary>
-    /// Finds the player.
+    /// Checks player collision and if line is indicating the crawlspace.
     /// </summary>
-    private void Start()
-    {
-    }
-
+    /// <param name="collision">The object being collided with.</param>
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -39,24 +34,7 @@ public class CrawlspaceBehavior : MonoBehaviour
                 collision.gameObject.transform.position = matchingCrawlspace.GetComponent<CrawlspaceBehavior>().telePosition;
 
             }
-
-        }
-
-        if (collision.gameObject.CompareTag("Dot"))
-        {
-            isIndicated = true;
-        }
-
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Dot"))
-        {
-            isIndicated = false;
-        }
-
-
+        }   
     }
 
 }

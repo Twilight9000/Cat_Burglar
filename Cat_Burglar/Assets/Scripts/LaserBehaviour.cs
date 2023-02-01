@@ -2,6 +2,7 @@
 * File Name: LaserBehaviour
 * 
 * Author: Shane Hajny
+* Minor Author: Jess Peters
 * 
 * Summary: When holding left mouse
 * button down, moves the dot to
@@ -17,6 +18,11 @@ public class LaserBehaviour : MonoBehaviour
     public Camera cam;
     public CameraBehavior cb;
     public LineRenderer lr;
+
+    /// <summary>
+    /// Holds a reference to the most recently touched crawlspace by the laser.
+    /// </summary>
+    private GameObject mostRecentCrawlspace;
 
     //Currently needs to be setup in scene view
     public GameObject dot;
@@ -64,6 +70,24 @@ public class LaserBehaviour : MonoBehaviour
                 {
                     dot.transform.position = hit.point;
                 }
+
+                //if dot hits a crawlspace
+                if (hit.collider.gameObject.CompareTag("Crawlspace"))
+                {
+                    mostRecentCrawlspace = hit.collider.gameObject;
+                    mostRecentCrawlspace.GetComponent<CrawlspaceBehavior>().isIndicated = true;
+
+                }
+                else
+                {
+                    if (mostRecentCrawlspace != null)
+                    {
+                        mostRecentCrawlspace.GetComponent<CrawlspaceBehavior>().isIndicated = false;
+                        mostRecentCrawlspace = null;
+
+                    }
+                }
+
 
                 for (int x = 0; x < laserHits.Count; x++)
                 {
