@@ -64,6 +64,7 @@ public class CameraBehavior : MonoBehaviour
     /// </summary>
     private float relativeZero;
 
+
     void Awake()
     {
         GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;

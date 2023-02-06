@@ -1,3 +1,5 @@
+//Deprecated script; see LootScript instead.
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
