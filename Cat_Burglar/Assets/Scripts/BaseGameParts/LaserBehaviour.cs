@@ -27,7 +27,6 @@ public class LaserBehaviour : MonoBehaviour
     //Currently needs to be setup in scene view
     public GameObject dot;
 
-    public string reflect = "Reflective";
     public List<Vector3> laserHits = new List<Vector3>();
 
     void Awake()
@@ -57,11 +56,8 @@ public class LaserBehaviour : MonoBehaviour
             Ray ray;
             RaycastHit hit;
 
-            
             ray = cam.ScreenPointToRay(Input.mousePosition);
             
-           
-
             laserHits.Clear();
             laserHits.Add(cam.transform.position - (cam.transform.up * 0.5f));
 
@@ -70,15 +66,23 @@ public class LaserBehaviour : MonoBehaviour
                 lr.enabled = true;
                 laserHits.Add(hit.point);
 
-                //If reflection is to occur
-                if (hit.collider.gameObject.CompareTag(reflect))
+                switch (hit.collider.gameObject.tag)
                 {
-                    ReflectDot(ray.direction, hit.normal, hit.point);
-                }
-                //Else, move dot to initial position
-                else
-                {
-                    dot.transform.position = hit.point;
+                    case "StopDot":
+                        dot.transform.position = new Vector3(0, -100, 0);
+                        break;
+
+                    case "Reflective":
+                        ReflectDot(ray.direction, hit.normal, hit.point);
+                        break;
+
+                    case "Disablable":
+                        hit.collider.gameObject.GetComponent<IShinable>().Disable();
+                        break;
+
+                    default:
+                        dot.transform.position = hit.point;
+                        break;
                 }
 
                 //if dot hits a crawlspace
@@ -87,7 +91,6 @@ public class LaserBehaviour : MonoBehaviour
                     mostRecentCrawlspace = hit.collider.gameObject;
                     mostRecentCrawlspace.GetComponent<CrawlspaceBehavior>().isIndicated = true;
                  //   print("AAAAAAAAAA");
-
                 }
                 else
                 {
@@ -95,10 +98,8 @@ public class LaserBehaviour : MonoBehaviour
                     {
                         mostRecentCrawlspace.GetComponent<CrawlspaceBehavior>().isIndicated = false;
                         mostRecentCrawlspace = null;
-
                     }
                 }
-
 
                 for (int x = 0; x < laserHits.Count; x++)
                 {
@@ -129,13 +130,23 @@ public class LaserBehaviour : MonoBehaviour
             laserHits.Add(hit.point);
 
             //Except it loops here if it should reflect again
-            if (hit.collider.gameObject.CompareTag(reflect))
+            switch (hit.collider.gameObject.tag)
             {
-                ReflectDot(ray.direction, hit.normal, hit.point);
-            }
-            else
-            {
-                dot.transform.position = hit.point;
+                case "StopDot":
+                    dot.transform.position = new Vector3(0, -100, 0);
+                    break;
+
+                case "Reflective":
+                    ReflectDot(ray.direction, hit.normal, hit.point);
+                    break;
+
+                case "Disablable":
+                    hit.collider.gameObject.GetComponent<IShinable>().Disable();
+                    break;
+
+                default:
+                    dot.transform.position = hit.point;
+                    break;
             }
         }
     }

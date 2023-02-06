@@ -8,11 +8,13 @@ TagManager:
   - Reflective
   - Vent
   - Crawlspace
+  - StopDot
+  - Disablable
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Invisible
   - Water
   - UI
   - 
