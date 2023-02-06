@@ -115,15 +115,15 @@ public class GameController : MonoBehaviour
     /// </summary>
     public void ShutdownActivated()
     {
-        foreach(GameObject a in guardsList)
+        foreach(GameObject guard in guardsList)
         {
             //TODO: activate all guards
 
         }
 
-        foreach(GameObject a in securityCamerasList)
+        foreach(GameObject securityCam in securityCamerasList)
         {
-            //TODO: activate all cameras
+            //TODO: activate all security cameras
         }
 
     }
