@@ -8,6 +8,10 @@ public class CatBehaviour : MonoBehaviour
     public Transform target;
     Vector3 destination;
     public NavMeshAgent nAgent;
+    public const int MAX_ITEMS_CARRY = 7;
+    public int currentCarriedWeight = 7;
+    private const int MIN_NAV_AGENT_SPEED = 2;
+    private const int MIN_NAV_ANGLE_AND_ACCEL = 121;
 
     void Awake()
     {
@@ -22,6 +26,13 @@ public class CatBehaviour : MonoBehaviour
     void Start()
     {
         nAgent = GetComponent<NavMeshAgent>();
+    }
+
+    public void ChangeCarryWeight()
+    {
+        nAgent.speed = currentCarriedWeight + MIN_NAV_AGENT_SPEED;
+        nAgent.angularSpeed = currentCarriedWeight * 34 + MIN_NAV_ANGLE_AND_ACCEL;
+        nAgent.acceleration = currentCarriedWeight * 34 + MIN_NAV_ANGLE_AND_ACCEL;
     }
 
     // Update is called once per frame
