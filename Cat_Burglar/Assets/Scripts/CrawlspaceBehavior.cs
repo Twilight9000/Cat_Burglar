@@ -16,11 +16,8 @@ public class CrawlspaceBehavior : MonoBehaviour
     [Tooltip("If the laser is touching this crawlspace, set true. Otherwise should be false.")]
     public bool isIndicated = false;
 
-     [Tooltip("This needs to be set to where the cat appears when this crawlspace is teleported to.")]
-     public Vector3 telePosition;
-
     /// <summary>
-    /// Checks player collision and if line is indicating the crawlspace.
+    /// Checks player collision and if line is indticating the crawlspace.
     /// </summary>
     /// <param name="collision">The object being collided with.</param>
     private void OnCollisionEnter(Collision collision)
@@ -30,7 +27,8 @@ public class CrawlspaceBehavior : MonoBehaviour
             if (isIndicated)
             {
                 //teleport cat
-                collision.gameObject.transform.parent.GetComponent<CatBehaviour>().nAgent.Warp(matchingCrawlspace.GetComponent<CrawlspaceBehavior>().telePosition);
+                collision.gameObject.transform.parent.GetComponent<CatBehaviour>().nAgent.Warp(matchingCrawlspace.transform.right * 2 + matchingCrawlspace.transform.position);
+                //collision.gameObject.transform.parent.GetComponent<CatBehaviour>().nAgent.Warp(matchingCrawlspace.GetComponent<CrawlspaceBehavior>().telePosition);
             }
         }   
     }
@@ -42,9 +40,20 @@ public class CrawlspaceBehavior : MonoBehaviour
             if (isIndicated)
             {
                 //teleport cat
-                collision.gameObject.transform.parent.GetComponent<CatBehaviour>().nAgent.Warp(matchingCrawlspace.GetComponent<CrawlspaceBehavior>().telePosition);
+                collision.gameObject.transform.parent.GetComponent<CatBehaviour>().nAgent.Warp(matchingCrawlspace.transform.right * 2 + matchingCrawlspace.transform.position);
+                //collision.gameObject.transform.parent.GetComponent<CatBehaviour>().nAgent.Warp(matchingCrawlspace.GetComponent<CrawlspaceBehavior>().telePosition);
             }
         }
     }
-     
+
+
+    /// <summary>
+    /// Showing where the cat will teleport to if indicated to each other
+    /// </summary>
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.right * 2 + transform.position, Vector3.one * 2);
+    }
+
 }
