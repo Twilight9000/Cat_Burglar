@@ -1,3 +1,8 @@
+/* Author: Jess Peters
+ * Date: 1/30/23
+ * Description: Teleports the cat back into the map if it gets lost
+ * 
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

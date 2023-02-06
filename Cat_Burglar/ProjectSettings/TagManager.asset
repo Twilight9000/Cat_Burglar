@@ -10,6 +10,8 @@ TagManager:
   - Crawlspace
   - StopDot
   - Disablable
+  - Guard
+  - Security Camera
   layers:
   - Default
   - TransparentFX
