@@ -30,7 +30,7 @@ public class SecurityCamBehavior : MonoBehaviour, IShinable
         cat = GameObject.Find("ORIGAMI_Cat");
         spLight = transform.GetChild(0).gameObject.GetComponent<Light>();
         spLight.spotAngle = maxAngle * 2;
-        spLight.range = camRange;
+        spLight.range = camRange + 5;
     }
 
     // Update is called once per frame

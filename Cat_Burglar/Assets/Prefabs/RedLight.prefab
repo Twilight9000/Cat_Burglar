@@ -46,7 +46,7 @@ Light:
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 2.34
   m_Range: 10
-  m_SpotAngle: 26.430367
+  m_SpotAngle: 30
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 6241439958527567187}
   - component: {fileID: 6241439958527567184}
   - component: {fileID: 6241439958527567185}
+  - component: {fileID: 552729282918926292}
   m_Layer: 0
   m_Name: RedLight
   m_TagString: Untagged
@@ -192,3 +193,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &552729282918926292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6241439958527567278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e14b472a9e2e1c4eba34608edd04587, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dot: {fileID: 0}
+  spLight: {fileID: 0}
+  maxAngle: 15
+  range: 20
