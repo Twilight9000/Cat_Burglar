@@ -810,6 +810,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 552729282418156931, guid: f30df001c1249a2419c9d94eb24369ad, type: 3}
+      propertyPath: m_SpotAngle
+      value: 26.430367
+      objectReference: {fileID: 0}
     - target: {fileID: 6241439958527567186, guid: f30df001c1249a2419c9d94eb24369ad, type: 3}
       propertyPath: m_RootOrder
       value: 8
