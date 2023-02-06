@@ -38,9 +38,21 @@ public class CatBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        NavMeshHit hit;
         if(Input.GetMouseButton(0))
         {
-            target = GameObject.Find("T H E D O T").transform;
+            if (!(nAgent.Raycast(GameObject.Find("T H E D O T").transform.position, out hit)))
+            {
+                target = GameObject.Find("T H E D O T").transform;
+            }
+            else if ((Vector3.Distance(GameObject.Find("T H E D O T").transform.position, transform.position)) < 7)
+            {
+                target = GameObject.Find("T H E D O T").transform;
+            }
+            else
+            {
+                target = null;
+            }
         }
         else
         {
