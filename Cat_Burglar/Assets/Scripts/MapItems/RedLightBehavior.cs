@@ -34,10 +34,12 @@ public class RedLightBehavior : MonoBehaviour
     {
         RaycastHit hit;
 
-        if (Vector3.Angle(-transform.up, dot.transform.position - transform.position) < maxAngle && spLight.enabled && 
-            Physics.Raycast(transform.position, dot.transform.position - transform.position, out hit, range) && hit.collider.gameObject == dot)
+        if (Vector3.Angle(transform.forward, dot.transform.position - transform.position) < maxAngle)
         {
-            dot.tag = "Untagged";
+            if (Physics.Raycast(transform.position, dot.transform.position - transform.position, out hit, range) && hit.collider.gameObject == dot)
+            {
+                dot.tag = "Untagged";
+            }
         }
         else if (dot.CompareTag("Untagged"))
         {

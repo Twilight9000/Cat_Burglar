@@ -19,6 +19,9 @@ public class LaserBehaviour : MonoBehaviour
     public CameraBehavior cb;
     public LineRenderer lr;
 
+    public int layer = 6;
+    public LayerMask layerMask;
+
     /// <summary>
     /// Holds a reference to the most recently touched crawlspace by the laser.
     /// </summary>
@@ -42,6 +45,7 @@ public class LaserBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        layerMask = 1 << layer;
         cam = Camera.main;
         cb = GetComponent<CameraBehavior>();
         lr = GetComponent<LineRenderer>();
@@ -61,7 +65,7 @@ public class LaserBehaviour : MonoBehaviour
             laserHits.Clear();
             laserHits.Add(cam.transform.position - (cam.transform.up * 0.5f));
 
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, 1000, ~layerMask))
             {
                 lr.enabled = true;
                 laserHits.Add(hit.point);
