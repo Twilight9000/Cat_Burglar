@@ -8,6 +8,8 @@ public class CatBehaviour : MonoBehaviour
     public Transform target;
     Vector3 destination;
     public NavMeshAgent nAgent;
+    public GameObject dot;
+    public string dt = "Dot";
     public const int MAX_ITEMS_CARRY = 7;
     public int currentCarriedWeight = 7;
     private const int MIN_NAV_AGENT_SPEED = 2;
@@ -26,6 +28,7 @@ public class CatBehaviour : MonoBehaviour
     void Start()
     {
         nAgent = GetComponent<NavMeshAgent>();
+        dot = GameObject.Find("T H E D O T");
     }
 
     public void ChangeCarryWeight()
@@ -41,13 +44,16 @@ public class CatBehaviour : MonoBehaviour
         NavMeshHit hit;
         if(Input.GetMouseButton(0))
         {
-            if (!(nAgent.Raycast(GameObject.Find("T H E D O T").transform.position, out hit)))
+            if (dot.CompareTag(dt))
             {
-                target = GameObject.Find("T H E D O T").transform;
-            }
-            else if ((Vector3.Distance(GameObject.Find("T H E D O T").transform.position, transform.position)) < 7)
-            {
-                target = GameObject.Find("T H E D O T").transform;
+                if (!(nAgent.Raycast(dot.transform.position, out hit)))
+                {
+                    target = dot.transform;
+                }
+                else if ((Vector3.Distance(dot.transform.position, transform.position)) < 7)
+                {
+                    target = dot.transform;
+                }
             }
             else
             {
