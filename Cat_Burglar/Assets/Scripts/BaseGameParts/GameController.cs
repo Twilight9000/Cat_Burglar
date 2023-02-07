@@ -34,7 +34,7 @@ public class GameController : MonoBehaviour
     {
         PauseMenu.SetActive(false);
         WinText.SetActive(false);
-
+        GameStateManager.Instance.SetState(GameState.Gameplay);
         if (DiamondObj != null)
         {
             objRef = DiamondObj.GetComponent<DiamondBehaviour>();
