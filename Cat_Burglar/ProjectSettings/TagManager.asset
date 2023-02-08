@@ -12,6 +12,8 @@ TagManager:
   - Disablable
   - Guard
   - Security Camera
+  - CatCam
+  - SkyCam
   layers:
   - Default
   - TransparentFX
