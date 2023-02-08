@@ -17,7 +17,7 @@ public class EscapeDoorBehaviour : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             //loads the end scene
-            //SceneManager.LoadScene("EndScene");
+            SceneManager.LoadScene("EndScene");
             Debug.Log("escaped");
 
         }
