@@ -68,10 +68,18 @@ public class GameController : MonoBehaviour
             // If the diamond is stolen
             if(objRef.isStolen == true)
             {
+                objRef.isStolen = false;
                 // Set win text
                 WinText.SetActive(true);
+                StartCoroutine(DeactivateWinText());
             }
         }
+    }
+
+    IEnumerator DeactivateWinText()
+    {
+        yield return new WaitForSeconds(5f);
+        WinText.SetActive(false);
     }
     
     public void ChangeGameState() 

@@ -9,7 +9,7 @@ public class GuardBehaviour : MonoBehaviour
     public Transform target;
     Vector3 destination;
 
-    public List<Transform> GuardPoints;
+    public Transform[] guardPoints;
     public int listIndex = 0;
 
     // Start is called before the first frame update
@@ -26,10 +26,10 @@ public class GuardBehaviour : MonoBehaviour
         {
             target = GameObject.Find("Origami_Cat_Model").transform;
         }
-        else
+        /*else
         {
-            target = List(listIndex).transform;
-        }
+            target = guardPoints[listIndex];
+        }*/
 
         if (!(target == null))
         {
@@ -39,7 +39,16 @@ public class GuardBehaviour : MonoBehaviour
         }
         else
         {
-            gnAgent.isStopped = true;
+            destination = guardPoints[listIndex].transform.position;
+            gnAgent.destination = destination;
+            if (transform.position == guardPoints[listIndex].transform.position)
+            {
+                listIndex++;
+            }
+            if (listIndex > guardPoints.Length)
+            {
+                listIndex = 0;
+            }
         }
     }
 }
