@@ -10,6 +10,11 @@ using UnityEngine;
 
 public class CameraBehavior : MonoBehaviour
 {
+    /// <summary>
+    /// The green ball above the camera that shows the active camera position from isometric view.
+    /// </summary>
+    private Transform positionIndicator;
+
     [Tooltip("DO NOT CHANGE ME. IS FOR READING VALUES ONLY.\nThe Y distance rotated away from the relative center of where the camera points.")]
     public float rotFromRelativeZero;
 
@@ -68,6 +73,9 @@ public class CameraBehavior : MonoBehaviour
     void Awake()
     {
         GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
+
+        positionIndicator = gameObject.transform.GetChild(0);
+
     }
 
     void OnDestroy()
@@ -184,8 +192,7 @@ public class CameraBehavior : MonoBehaviour
     /// It moves the camera and ests its boundary values.
     /// </summary>
     void UponEnteringAVent()
-    {
-
+    {     
         transform.position = ventsList[ventSelected].GetComponent<Transform>().position;
         transform.rotation = Quaternion.Euler(ventsList[ventSelected].GetComponent<Transform>().rotation.x, ventsList[ventSelected].GetComponent<Transform>().rotation.y, ventsList[ventSelected].GetComponent<Transform>().rotation.z);
 
@@ -194,6 +201,10 @@ public class CameraBehavior : MonoBehaviour
         currentVentYBoundLeft = currentVentScript.yLeftBound;
         currentVentYBoundRight = currentVentScript.yRightBound;
         currentVentXBoundUpper = currentVentScript.xUpperBound;
+
+
+        positionIndicator.localPosition = new Vector3(positionIndicator.localPosition.x, currentVentScript.indicatorYPos, positionIndicator.localPosition.z);
+
 
         if (currentVentScript.looksTo0)
         {
