@@ -15,6 +15,9 @@ public class PointBehavior : MonoBehaviour
     public float xUpperBound;
     public float yRightBound;
 
+    [Tooltip("The Y position that the camera indicator should be at when this vent is being looked through.")]
+    public float indicatorYPos;
+
     [Tooltip("Set true if 0 is the direction the camera looks in general. Else set false.")]
     public bool looksTo0 = false;
 
@@ -26,6 +29,7 @@ public class PointBehavior : MonoBehaviour
 
     [Tooltip("Set true if -90 is the direction the camera looks in general. Else set false.")]
     public bool looksToNegative90 = false;
+
 
     void Awake()
     {
