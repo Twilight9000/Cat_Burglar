@@ -23,7 +23,7 @@ public class LootScript : MonoBehaviour
     [Tooltip("DO NOT CHANGE ME IN INSPECTOR. IS FOR READING VALUES ONLY.\nSet to true when the item is stolen.")]
     public bool isStolen = false;
 
-    public Rigidbody myRB;
+    private Rigidbody myRB;
 
     private GameController gc;
 
@@ -37,36 +37,17 @@ public class LootScript : MonoBehaviour
         isStolen = false;
     }
 
-    private void Update()
-    {
-      //  Debug.Log(isStolen);
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            Debug.Log("Collision...");
-            isStolen = true;
-            
-            if (triggersShutdown)
-            {
-                ShutdownTriggered();
-            }
-            
-            
-            //NOTICE: KEEP THIS AT THE BOTTOM OF THE SCRIPT
-            gameObject.SetActive(false);
-        }
-    }
-
     /// <summary>
     /// Called when the museum is shut down. This tells the guards and cameras to deploy.
     /// </summary>
-    void ShutdownTriggered()
+    public void ShutdownTriggered()
     {
-        gc.ShutdownActivated();
-
+        Physics.IgnoreCollision(GameObject.Find("Origami_Cat_Model").GetComponent<Collider>(), GetComponent<Collider>(),true);
+        if (triggersShutdown)
+        {
+            gc.ShutdownActivated();
+        }
+        gameObject.SetActive(false);
         //TODO: Tell gameController that guards need to spawn and stuff.
 
     }

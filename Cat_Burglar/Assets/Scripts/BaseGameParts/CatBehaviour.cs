@@ -9,9 +9,10 @@ public class CatBehaviour : MonoBehaviour
     Vector3 destination;
     public NavMeshAgent nAgent;
     public const int MAX_ITEMS_CARRY = 7;
-    public int currentCarriedWeight = 7;
+    public int currentCarriedWeight = 0;
     private const int MIN_NAV_AGENT_SPEED = 2;
     private const int MIN_NAV_ANGLE_AND_ACCEL = 121;
+    public List<GameObject> objectsStolen = new List<GameObject>();
 
     void Awake()
     {
@@ -25,14 +26,28 @@ public class CatBehaviour : MonoBehaviour
 
     void Start()
     {
-        nAgent = GetComponent<NavMeshAgent>();
+        nAgent = gameObject.transform.parent.GetComponent<NavMeshAgent>();
+        ChangeCarryWeight();
     }
 
     public void ChangeCarryWeight()
     {
-        nAgent.speed = currentCarriedWeight + MIN_NAV_AGENT_SPEED;
-        nAgent.angularSpeed = currentCarriedWeight * 34 + MIN_NAV_ANGLE_AND_ACCEL;
-        nAgent.acceleration = currentCarriedWeight * 34 + MIN_NAV_ANGLE_AND_ACCEL;
+        print(MAX_ITEMS_CARRY - currentCarriedWeight + " " + MAX_ITEMS_CARRY);
+        nAgent.speed = (MAX_ITEMS_CARRY - currentCarriedWeight) + MIN_NAV_AGENT_SPEED;
+        nAgent.angularSpeed = (MAX_ITEMS_CARRY - currentCarriedWeight) * 34 + MIN_NAV_ANGLE_AND_ACCEL;
+        nAgent.acceleration = (MAX_ITEMS_CARRY - currentCarriedWeight) * 34 + MIN_NAV_ANGLE_AND_ACCEL;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.TryGetComponent<LootScript>(out LootScript l) && currentCarriedWeight + l.weight <= MAX_ITEMS_CARRY)
+        {
+            objectsStolen.Add(l.gameObject);
+            l.isStolen = true;
+            currentCarriedWeight += l.weight;
+            ChangeCarryWeight();
+            l.ShutdownTriggered();
+        }
     }
 
     // Update is called once per frame
