@@ -7313,6 +7313,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6595516799362559171, guid: d54213770cd61dc4b92c662055364107, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6595516799362559181, guid: d54213770cd61dc4b92c662055364107, type: 3}
       propertyPath: m_Name
       value: Win Text

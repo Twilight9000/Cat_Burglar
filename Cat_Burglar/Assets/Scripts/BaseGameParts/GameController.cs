@@ -62,11 +62,13 @@ public class GameController : MonoBehaviour
             ChangeScene(SceneName);
         }
 
-        //if the game is broken, set to win state lol
+        // Check if the diamond is in the scene in the first place
         if (DiamondObj != null)
         {
+            // If the diamond is stolen
             if(objRef.isStolen == true)
             {
+                // Set win text
                 WinText.SetActive(true);
             }
         }
