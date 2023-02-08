@@ -32,7 +32,10 @@ public class GameController : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        PauseMenu.SetActive(false);
+        if (PauseMenu != null)
+        { 
+            PauseMenu.SetActive(false);
+        }
         WinText.SetActive(false);
         GameStateManager.Instance.SetState(GameState.Gameplay);
         if (DiamondObj != null)
@@ -59,11 +62,13 @@ public class GameController : MonoBehaviour
             ChangeScene(SceneName);
         }
 
-        //if the game is broken, set to win state lol
+        // Check if the diamond is in the scene in the first place
         if (DiamondObj != null)
         {
+            // If the diamond is stolen
             if(objRef.isStolen == true)
             {
+                // Set win text
                 WinText.SetActive(true);
             }
         }
@@ -78,17 +83,20 @@ public class GameController : MonoBehaviour
 
         GameStateManager.Instance.SetState(newGameState);
 
-        if (PauseMenu.activeInHierarchy)
+        if (PauseMenu != null)
         {
-            PauseMenu.SetActive(false);
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-        else
-        {
-            PauseMenu.SetActive(true);
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
+            if (PauseMenu.activeInHierarchy)
+            {
+                PauseMenu.SetActive(false);
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+            else
+            {
+                PauseMenu.SetActive(true);
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
         }
     }
 
