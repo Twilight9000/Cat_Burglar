@@ -25,6 +25,11 @@ public class GameController : MonoBehaviour
     /// </summary>
     private GameObject[] securityCamerasList;
 
+    public GameObject catCam;
+    public GameObject skyCam;
+
+    public int whichOtherCam = 1;
+
 
     /// <summary>
     /// Makes sure the pause and win items are set to false.
@@ -45,7 +50,9 @@ public class GameController : MonoBehaviour
 
         guardsList = GameObject.FindGameObjectsWithTag("Guard");
         securityCamerasList = GameObject.FindGameObjectsWithTag("Security Camera");
-
+        //catCam = GameObject.FindGameObjectWithTag("CatCam");
+        //skyCam = GameObject.FindGameObjectWithTag("SkyCam");
+        
     }
 
     // Update is called once per frame
@@ -73,6 +80,25 @@ public class GameController : MonoBehaviour
                 WinText.SetActive(true);
                 StartCoroutine(DeactivateWinText());
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.S) && whichOtherCam == 1)
+        {
+            catCam.SetActive(true);
+            skyCam.SetActive(false);
+            whichOtherCam = 2;
+        }
+        else if (Input.GetKeyDown(KeyCode.S) && whichOtherCam == 2)
+        {
+            catCam.SetActive(false);
+            skyCam.SetActive(true);
+            whichOtherCam = 3;
+        }
+        else if (Input.GetKeyDown(KeyCode.S) && whichOtherCam == 3)
+        {
+            catCam.SetActive(false);
+            skyCam.SetActive(false);
+            whichOtherCam = 1;
         }
     }
 
