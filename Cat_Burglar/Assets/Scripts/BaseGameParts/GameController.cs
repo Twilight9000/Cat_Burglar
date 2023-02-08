@@ -8,12 +8,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
     public string SceneName;
     public GameObject PauseMenu, DiamondObj, WinText;
     public DiamondBehaviour objRef;
+    public Text totalMoneyText, moneyCarriedText;
 
     /// <summary>
     /// A list of the guards in the game. Auto-populates at Start().
@@ -25,6 +27,16 @@ public class GameController : MonoBehaviour
     /// </summary>
     private GameObject[] securityCamerasList;
 
+    public GameObject catCam;
+    public GameObject skyCam;
+
+    public int whichOtherCam = 1;
+
+    [Tooltip("the amount of money gained")]
+    public float totalMoneyScore;
+
+    [Tooltip("current money amount in inventory")]
+    public float moneyCaried;
 
     /// <summary>
     /// Makes sure the pause and win items are set to false.
@@ -45,7 +57,9 @@ public class GameController : MonoBehaviour
 
         guardsList = GameObject.FindGameObjectsWithTag("Guard");
         securityCamerasList = GameObject.FindGameObjectsWithTag("Security Camera");
-
+        //catCam = GameObject.FindGameObjectWithTag("CatCam");
+        //skyCam = GameObject.FindGameObjectWithTag("SkyCam");
+        
     }
 
     // Update is called once per frame
@@ -73,6 +87,25 @@ public class GameController : MonoBehaviour
                 WinText.SetActive(true);
                 StartCoroutine(DeactivateWinText());
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.S) && whichOtherCam == 1)
+        {
+            catCam.SetActive(true);
+            skyCam.SetActive(false);
+            whichOtherCam = 2;
+        }
+        else if (Input.GetKeyDown(KeyCode.S) && whichOtherCam == 2)
+        {
+            catCam.SetActive(false);
+            skyCam.SetActive(true);
+            whichOtherCam = 3;
+        }
+        else if (Input.GetKeyDown(KeyCode.S) && whichOtherCam == 3)
+        {
+            catCam.SetActive(false);
+            skyCam.SetActive(false);
+            whichOtherCam = 1;
         }
     }
 
@@ -106,6 +139,15 @@ public class GameController : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
             }
         }
+    }
+
+    /// <summary>
+    /// Updates the text in the ui to accuratley represent money
+    /// </summary>
+    public void UpdateText()
+    {
+        totalMoneyText.text = "Total Money Gained: $ " + totalMoneyScore.ToString();
+        moneyCarriedText.text = "Money Carried $ " + moneyCaried.ToString();
     }
 
     /// <summary>
