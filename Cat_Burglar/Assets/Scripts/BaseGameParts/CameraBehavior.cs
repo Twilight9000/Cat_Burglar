@@ -98,7 +98,7 @@ public class CameraBehavior : MonoBehaviour
     void Update()
     {   
         //Checks whether or not to change vents and handles what happens when the list needs to loop.
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.D))
         {
             ventSelected++;
 
@@ -110,6 +110,20 @@ public class CameraBehavior : MonoBehaviour
             UponEnteringAVent();
           
         }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            ventSelected--;
+            if (ventSelected < 0)
+            {
+                ventSelected = ventsList.Length - 1;
+            }
+
+            UponEnteringAVent();
+
+        }
+
+
 
 
         //How the FPS camera looks around
