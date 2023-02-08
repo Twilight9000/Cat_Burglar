@@ -8,12 +8,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
     public string SceneName;
     public GameObject PauseMenu, DiamondObj, WinText;
     public DiamondBehaviour objRef;
+    public Text totalMoneyText, moneyCarriedText;
 
     /// <summary>
     /// A list of the guards in the game. Auto-populates at Start().
@@ -30,6 +32,11 @@ public class GameController : MonoBehaviour
 
     public int whichOtherCam = 1;
 
+    [Tooltip("the amount of money gained")]
+    public float totalMoneyScore;
+
+    [Tooltip("current money amount in inventory")]
+    public float moneyCaried;
 
     /// <summary>
     /// Makes sure the pause and win items are set to false.
@@ -132,6 +139,15 @@ public class GameController : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
             }
         }
+    }
+
+    /// <summary>
+    /// Updates the text in the ui to accuratley represent money
+    /// </summary>
+    public void UpdateText()
+    {
+        totalMoneyText.text = "Total Money Gained: $ " + totalMoneyScore.ToString();
+        moneyCarriedText.text = "Money Carried $ " + moneyCaried.ToString();
     }
 
     /// <summary>

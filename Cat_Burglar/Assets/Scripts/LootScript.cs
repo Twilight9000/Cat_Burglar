@@ -43,6 +43,8 @@ public class LootScript : MonoBehaviour
     public void ShutdownTriggered()
     {
         Physics.IgnoreCollision(GameObject.Find("Origami_Cat_Model").GetComponent<Collider>(), GetComponent<Collider>(),true);
+        gc.moneyCaried += moneyValue;
+        gc.UpdateText();
         if (triggersShutdown)
         {
             gc.ShutdownActivated();
