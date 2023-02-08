@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 7406bc5b8e13a284a929f0fb559ae654, type: 3}
       propertyPath: m_Name
-      value: MoonStone01
+      value: Diamond
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7406bc5b8e13a284a929f0fb559ae654, type: 3}
       propertyPath: m_RootOrder
@@ -91,7 +91,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.11117854
   m_Center: {x: 0.0000000037252903, y: -0.00000007450582, z: 0}
---- !u!114 &973244994
+--- !u!114 &-5833208429778804989
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,8 +100,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3777347767888074424}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bed0f3351ef6f544a7fa223ba4b3e39, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a4a2d5bf8fc6fc4b870de8a2d4ef497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myRB: {fileID: 0}
+  weight: 5
+  moneyValue: 1000
+  triggersShutdown: 1
   isStolen: 0
+  myRB: {fileID: 0}
