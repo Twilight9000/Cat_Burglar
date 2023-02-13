@@ -59,6 +59,16 @@ public class GameController : MonoBehaviour
         securityCamerasList = GameObject.FindGameObjectsWithTag("Security Camera");
         //catCam = GameObject.FindGameObjectWithTag("CatCam");
         //skyCam = GameObject.FindGameObjectWithTag("SkyCam");
+
+        foreach (GameObject guard in guardsList)
+        {
+            guard.SetActive(false);
+        }
+
+        foreach (GameObject securityCam in securityCamerasList)
+        {
+            securityCam.SetActive(false);
+        }
         
     }
 
@@ -175,13 +185,17 @@ public class GameController : MonoBehaviour
     {
         foreach(GameObject guard in guardsList)
         {
-            //TODO: activate all guards
+            //TODO: TEST THIS
+            guard.SetActive(true);
+
 
         }
 
         foreach(GameObject securityCam in securityCamerasList)
         {
-            //TODO: activate all security cameras
+            //TODO: TEST THIS
+            securityCam.SetActive(true);
+
         }
 
     }
