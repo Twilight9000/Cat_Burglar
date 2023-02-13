@@ -43,14 +43,26 @@ public class CatBehaviour : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.TryGetComponent<LootScript>(out LootScript l) && currentCarriedWeight + l.weight <= MAX_ITEMS_CARRY)
+        if(collision.gameObject.TryGetComponent<LootScript>(out LootScript l))
         {
-            objectsStolen.Add(l.gameObject);
-            l.isStolen = true;
-            currentCarriedWeight += l.weight;
-            ChangeCarryWeight();
-            l.ShutdownTriggered();
+            if(currentCarriedWeight + l.weight <= MAX_ITEMS_CARRY)
+            {
+                objectsStolen.Add(l.gameObject);
+                l.isStolen = true;
+                currentCarriedWeight += l.weight;
+                ChangeCarryWeight();
+                l.ShutdownTriggered();
+            }
+
+            else
+            {
+                GameController gc = GameObject.FindObjectOfType<GameController>();
+                gc.StartCoroutine("WeightLimitReached");
+            }
         }
+
+        
+        
     }
 
     // Update is called once per frame
