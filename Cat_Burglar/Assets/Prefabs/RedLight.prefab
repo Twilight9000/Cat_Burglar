@@ -44,7 +44,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 2.34
+  m_Intensity: 1000000
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 1
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 552729282918926292}
   m_Layer: 0
   m_Name: RedLight
-  m_TagString: Untagged
+  m_TagString: Red Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
