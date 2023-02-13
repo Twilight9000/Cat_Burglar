@@ -40,7 +40,7 @@ public class CrawlspaceBehavior : MonoBehaviour
             if (isIndicated)
             {
                 //teleport cat
-                collision.gameObject.transform.parent.GetComponent<CatBehaviour>().nAgent.Warp(matchingCrawlspace.transform.right * 2 + matchingCrawlspace.transform.position);
+                collision.gameObject.GetComponent<CatBehaviour>().nAgent.Warp(matchingCrawlspace.transform.right * 2 + matchingCrawlspace.transform.position);
                 //collision.gameObject.transform.parent.GetComponent<CatBehaviour>().nAgent.Warp(matchingCrawlspace.GetComponent<CrawlspaceBehavior>().telePosition);
             }
         }
