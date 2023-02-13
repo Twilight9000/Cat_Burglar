@@ -46,3 +46,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneName: 
   PauseMenu: {fileID: 0}
+  DiamondObj: {fileID: 0}
+  WinText: {fileID: 0}
+  WeightLimitMenu: {fileID: 0}
+  objRef: {fileID: 0}
+  totalMoneyText: {fileID: 0}
+  moneyCarriedText: {fileID: 0}
+  catCam: {fileID: 0}
+  skyCam: {fileID: 0}
+  whichOtherCam: 1
+  totalMoneyScore: 0
+  moneyCaried: 0
