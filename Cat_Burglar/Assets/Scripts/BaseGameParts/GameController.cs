@@ -78,7 +78,9 @@ public class GameController : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Allows pausing and ccycling of cat cam and minimap
+    /// </summary>
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
