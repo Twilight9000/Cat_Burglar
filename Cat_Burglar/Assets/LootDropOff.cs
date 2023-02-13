@@ -24,6 +24,7 @@ public class LootDropOff : MonoBehaviour
                 g.gameObject.SetActive(true);
             }
             cat.objectsStolen.Clear();
+            cat.ChangeCarryWeight();
 
             gc.totalMoneyScore += gc.moneyCaried;
             gc.moneyCaried = 0;
