@@ -50,7 +50,6 @@ public class LootScript : MonoBehaviour
             gc.ShutdownActivated();
         }
         gameObject.SetActive(false);
-        //TODO: Tell gameController that guards need to spawn and stuff.
 
     }
 

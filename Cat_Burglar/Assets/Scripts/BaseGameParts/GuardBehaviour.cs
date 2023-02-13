@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.AI;
 
 public class GuardBehaviour : MonoBehaviour
@@ -22,7 +23,8 @@ public class GuardBehaviour : MonoBehaviour
     void Update()
     {
         NavMeshHit hit;
-        if (!(gnAgent.Raycast(GameObject.Find("Origami_Cat_Model").transform.position, out hit)) && Vector3.Distance(GameObject.Find("Origami_Cat_Model").transform.position, transform.position) < 15)
+        if (!(gnAgent.Raycast(GameObject.Find("Origami_Cat_Model").transform.position, out hit)) && 
+            Vector3.Distance(GameObject.Find("Origami_Cat_Model").transform.position, transform.position) < 15)
         {
             target = GameObject.Find("Origami_Cat_Model").transform;
         }
@@ -51,4 +53,17 @@ public class GuardBehaviour : MonoBehaviour
             }
         }
     }
+
+    /// <summary>
+    /// When the guard collides with the cat, the game over activates.
+    /// </summary>
+    /// <param name="collision">The object collided with.</param>
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            SceneManager.LoadScene("LoseScene");
+        }
+    }
+
 }
