@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 552729282918926292}
   m_Layer: 0
   m_Name: RedLight
-  m_TagString: Untagged
+  m_TagString: Red Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

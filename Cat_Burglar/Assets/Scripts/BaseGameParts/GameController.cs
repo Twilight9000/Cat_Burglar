@@ -14,7 +14,6 @@ public class GameController : MonoBehaviour
 {
     public string SceneName;
     public GameObject PauseMenu, DiamondObj, WinText;
-    public DiamondBehaviour objRef;
     public Text totalMoneyText, moneyCarriedText;
 
     /// <summary>
@@ -26,6 +25,11 @@ public class GameController : MonoBehaviour
     /// A list of the security cameras in the game. Auto-populates at Start().
     /// </summary>
     private GameObject[] securityCamerasList;
+
+    /// <summary>
+    /// List of red lights in the game. Auto-populates at Start().
+    /// </summary>
+    private GameObject[] redLightsList;
 
     public GameObject catCam;
     public GameObject skyCam;
@@ -53,6 +57,7 @@ public class GameController : MonoBehaviour
 
         guardsList = GameObject.FindGameObjectsWithTag("Guard");
         securityCamerasList = GameObject.FindGameObjectsWithTag("Security Camera");
+        redLightsList = GameObject.FindGameObjectsWithTag("Red Light");
         //catCam = GameObject.FindGameObjectWithTag("CatCam");
         //skyCam = GameObject.FindGameObjectWithTag("SkyCam");
 
@@ -65,7 +70,12 @@ public class GameController : MonoBehaviour
         {
             securityCam.SetActive(false);
         }
-        
+
+        foreach (GameObject redlLight in redLightsList)
+        {
+            redlLight.SetActive(false);
+        }
+
     }
 
     // Update is called once per frame
@@ -169,23 +179,23 @@ public class GameController : MonoBehaviour
     }
 
     /// <summary>
-    /// Activates the guards and cameras within the scene.
+    /// Activates the guards, cameras, and red lights within the scene.
     /// </summary>
     public void ShutdownActivated()
     {
         foreach(GameObject guard in guardsList)
         {
-            //TODO: TEST THIS
             guard.SetActive(true);
-
-
         }
 
         foreach(GameObject securityCam in securityCamerasList)
         {
-            //TODO: TEST THIS
             securityCam.SetActive(true);
+        }
 
+        foreach (GameObject redlLight in redLightsList)
+        {
+            redlLight.SetActive(true);
         }
 
     }
