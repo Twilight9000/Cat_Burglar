@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3330116395787353468}
-  - component: {fileID: 6512947090015380378}
-  - component: {fileID: 204558617430013442}
   - component: {fileID: 6985878494655197048}
   m_Layer: 0
   m_Name: ORIGAMI_Cat
@@ -36,37 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &6512947090015380378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2701354501279557574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee935b329bcfe5440a7fea7361a0a070, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lowestPoint: 0
-  teleportHeight: 0
---- !u!114 &204558617430013442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2701354501279557574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afc670d889a67bb468f103876e2a1809, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  nAgent: {fileID: 0}
-  dot: {fileID: 0}
-  dt: Dot
-  currentCarriedWeight: 7
 --- !u!195 &6985878494655197048
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -102,6 +69,8 @@ GameObject:
   - component: {fileID: 6915055865813837194}
   - component: {fileID: 3484353893460095142}
   - component: {fileID: 4008047190674992850}
+  - component: {fileID: 6416126632829414076}
+  - component: {fileID: 4432938692840372263}
   m_Layer: 0
   m_Name: Origami_Cat_Model
   m_TagString: Player
@@ -204,6 +173,38 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!114 &6416126632829414076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5810616052383319641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc670d889a67bb468f103876e2a1809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  nAgent: {fileID: 0}
+  dot: {fileID: 0}
+  dt: Dot
+  currentCarriedWeight: 7
+  objectsStolen: []
+--- !u!114 &4432938692840372263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5810616052383319641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee935b329bcfe5440a7fea7361a0a070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowestPoint: 0
+  teleportHeight: 0
 --- !u!1 &7150269247790340800
 GameObject:
   m_ObjectHideFlags: 0
