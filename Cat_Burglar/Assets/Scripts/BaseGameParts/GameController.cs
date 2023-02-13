@@ -6,6 +6,7 @@
  */
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,6 +16,7 @@ public class GameController : MonoBehaviour
     public string SceneName;
     public GameObject PauseMenu, DiamondObj, WinText, WeightLimitMenu;
     public Text totalMoneyText, moneyCarriedText;
+    public TextMeshProUGUI scoreText;
 
     /// <summary>
     /// A list of the guards in the game. Auto-populates at Start().
@@ -48,34 +50,42 @@ public class GameController : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        if (PauseMenu != null)
-        { 
-            PauseMenu.SetActive(false);
-        }
-        WinText.SetActive(false);
-        GameStateManager.Instance.SetState(GameState.Gameplay);
-
-        guardsList = GameObject.FindGameObjectsWithTag("Guard");
-        securityCamerasList = GameObject.FindGameObjectsWithTag("Security Camera");
-        redLightsList = GameObject.FindGameObjectsWithTag("Red Light");
-        //catCam = GameObject.FindGameObjectWithTag("CatCam");
-        //skyCam = GameObject.FindGameObjectWithTag("SkyCam");
-
-        foreach (GameObject guard in guardsList)
+        if(SceneManager.GetActiveScene().name.Equals("EndScene") || SceneManager.GetActiveScene().name.Equals("MainMenu"))
         {
-            guard.SetActive(false);
+            if (scoreText != null)
+                scoreText.text = "Value of Stolen Goods:\n$ " + PlayerPrefs.GetFloat("Money").ToString();
+            GameObject.FindGameObjectWithTag("Player").GetComponent<CatBehaviour>().enabled = false;
         }
-
-        foreach (GameObject securityCam in securityCamerasList)
+        else
         {
-            securityCam.SetActive(false);
-        }
+            if (PauseMenu != null)
+            {
+                PauseMenu.SetActive(false);
+            }
+            WinText.SetActive(false);
+            GameStateManager.Instance.SetState(GameState.Gameplay);
 
-        foreach (GameObject redlLight in redLightsList)
-        {
-            redlLight.SetActive(false);
-        }
+            guardsList = GameObject.FindGameObjectsWithTag("Guard");
+            securityCamerasList = GameObject.FindGameObjectsWithTag("Security Camera");
+            redLightsList = GameObject.FindGameObjectsWithTag("Red Light");
+            //catCam = GameObject.FindGameObjectWithTag("CatCam");
+            //skyCam = GameObject.FindGameObjectWithTag("SkyCam");
 
+            foreach (GameObject guard in guardsList)
+            {
+                guard.SetActive(false);
+            }
+
+            foreach (GameObject securityCam in securityCamerasList)
+            {
+                securityCam.SetActive(false);
+            }
+
+            foreach (GameObject redlLight in redLightsList)
+            {
+                redlLight.SetActive(false);
+            }
+        }
     }
 
     /// <summary>
@@ -185,6 +195,7 @@ public class GameController : MonoBehaviour
     /// <param name="nameOfScene">Name of the scene being changed to.</param>
     public void ChangeScene(string nameOfScene)
     {
+        PlayerPrefs.SetFloat("Money", 0);
         SceneManager.LoadScene(nameOfScene);
     }
 

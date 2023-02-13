@@ -17,6 +17,7 @@ public class EscapeDoorBehaviour : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             //loads the end scene
+            PlayerPrefs.SetFloat("Money", GameObject.Find("GameController").GetComponent<GameController>().totalMoneyScore);
             SceneManager.LoadScene("EndScene");
             Debug.Log("escaped");
 
