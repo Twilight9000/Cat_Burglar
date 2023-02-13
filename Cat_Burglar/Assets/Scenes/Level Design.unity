@@ -814,7 +814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weight: 6
   moneyValue: 1000
-  triggersShutdown: 0
+  triggersShutdown: 1
   isStolen: 0
 --- !u!54 &184419293
 Rigidbody:
@@ -1813,11 +1813,11 @@ GameObject:
   - component: {fileID: 435671507}
   m_Layer: 0
   m_Name: Guard
-  m_TagString: Untagged
+  m_TagString: Guard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!195 &435671507
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4519,7 +4519,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8248463052011469389, guid: b3ebdc2df3b7993409bddea78d9c29cc, type: 3}
       propertyPath: m_Name
-      value: Camera
+      value: Security Camera
       objectReference: {fileID: 0}
     - target: {fileID: 8248463052011469489, guid: b3ebdc2df3b7993409bddea78d9c29cc, type: 3}
       propertyPath: m_RootOrder
