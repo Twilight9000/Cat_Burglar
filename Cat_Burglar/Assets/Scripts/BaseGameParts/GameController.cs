@@ -13,7 +13,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     public string SceneName;
-    public GameObject PauseMenu, DiamondObj, WinText;
+    public GameObject PauseMenu, DiamondObj, WinText, WeightLimitMenu;
     public Text totalMoneyText, moneyCarriedText;
 
     /// <summary>
@@ -219,5 +219,12 @@ public class GameController : MonoBehaviour
 
     }
 
+    public IEnumerator WeightLimitReached()
+    {
+        WeightLimitMenu.SetActive(true);
 
+        yield return new WaitForSeconds(3f);
+
+        WeightLimitMenu.SetActive(false);
+    }
 }
