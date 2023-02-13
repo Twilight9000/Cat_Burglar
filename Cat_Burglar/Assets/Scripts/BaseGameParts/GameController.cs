@@ -50,10 +50,6 @@ public class GameController : MonoBehaviour
         }
         WinText.SetActive(false);
         GameStateManager.Instance.SetState(GameState.Gameplay);
-        if (DiamondObj != null)
-        {
-            objRef = DiamondObj.GetComponent<DiamondBehaviour>();
-        }
 
         guardsList = GameObject.FindGameObjectsWithTag("Guard");
         securityCamerasList = GameObject.FindGameObjectsWithTag("Security Camera");
@@ -86,19 +82,6 @@ public class GameController : MonoBehaviour
             ChangeScene(SceneName);
         }
 
-        // Check if the diamond is in the scene in the first place
-        if (DiamondObj != null)
-        {
-            // If the diamond is stolen
-            if(objRef.isStolen == true)
-            {
-                objRef.isStolen = false;
-                // Set win text
-                WinText.SetActive(true);
-                StartCoroutine(DeactivateWinText());
-            }
-        }
-
         if (Input.GetKeyDown(KeyCode.S) && whichOtherCam == 1)
         {
             catCam.SetActive(true);
@@ -119,12 +102,19 @@ public class GameController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// TODO: what does this do
+    /// </summary>
+    /// <returns></returns>
     IEnumerator DeactivateWinText()
     {
         yield return new WaitForSeconds(5f);
         WinText.SetActive(false);
     }
     
+    /// <summary>
+    /// TODO: what does this do
+    /// </summary>
     public void ChangeGameState() 
     {
         GameState currentGameState = GameStateManager.Instance.CurrentGameState;
