@@ -39,7 +39,7 @@ public class GuardBehaviour : MonoBehaviour
             destination = target.position;
             gnAgent.destination = destination;
         }
-        else
+        else if(target == null)
         {
             destination = guardPoints[listIndex].transform.position;
             gnAgent.destination = destination;
@@ -47,10 +47,10 @@ public class GuardBehaviour : MonoBehaviour
             {
                 listIndex++;
             }
-            if (listIndex > guardPoints.Length)
-            {
-                listIndex = 0;
-            }
+        }
+        if (listIndex >= guardPoints.Length)
+        {
+            listIndex = 0;
         }
     }
 
