@@ -1812,7 +1812,7 @@ GameObject:
   - component: {fileID: 435671508}
   - component: {fileID: 435671507}
   m_Layer: 0
-  m_Name: Guard
+  m_Name: Guard1
   m_TagString: Guard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3775,7 +3775,7 @@ Transform:
   - {fileID: 1070497247}
   - {fileID: 413366358}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &870884706
 PrefabInstance:
@@ -4742,7 +4742,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1004208989}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.93, y: 4.194, z: 17.01}
+  m_LocalPosition: {x: -19.93, y: 3.533333, z: 17.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6266,7 +6266,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320023753}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.93, y: 4.194, z: -14.75}
+  m_LocalPosition: {x: -19.93, y: 3.533333, z: -14.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10506,7 +10506,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2129096057}
   m_Layer: 0
-  m_Name: GuardPoints
+  m_Name: Guard1Points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10527,7 +10527,7 @@ Transform:
   - {fileID: 1004208990}
   - {fileID: 1320023754}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2133616078
 GameObject:
@@ -10658,7 +10658,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1499815739281440135, guid: 32b6a0bda13b89347a5d5145b8b387a2, type: 3}
       propertyPath: m_RootOrder
-      value: 22
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 1499815739281440135, guid: 32b6a0bda13b89347a5d5145b8b387a2, type: 3}
       propertyPath: m_LocalScale.x
@@ -10735,7 +10735,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 731436097994998400, guid: f4fa4aaf4c736ca40a8d6147c6ca5b56, type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 731436097994998400, guid: f4fa4aaf4c736ca40a8d6147c6ca5b56, type: 3}
       propertyPath: m_LocalScale.x
