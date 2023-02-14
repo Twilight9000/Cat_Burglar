@@ -5185,7 +5185,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Value of Stolen Goods:
+  m_Text: 'Value Carried:
 
     $000,000,000'
 --- !u!222 &1108710708
@@ -6370,6 +6370,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 256263267}
     - target: {fileID: 3419960189988009724, guid: cfa0c4c266e37394db01bd8c97a95096, type: 3}
+      propertyPath: SceneName
+      value: Level Design
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419960189988009724, guid: cfa0c4c266e37394db01bd8c97a95096, type: 3}
       propertyPath: DiamondObj
       value: 
       objectReference: {fileID: 259440182}
@@ -6580,7 +6584,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Value of Stolen Goods:
+  m_Text: 'Value Stashed:
 
     $000,000,000'
 --- !u!222 &1437234998
