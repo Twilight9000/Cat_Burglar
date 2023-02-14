@@ -5,7 +5,7 @@
  * Description: Handles pausing and other game events/UI. 
  */
 using System.Collections;
-using System.Collections.Generic;
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -86,6 +86,9 @@ public class GameController : MonoBehaviour
                 redlLight.SetActive(false);
             }
         }
+
+        totalMoneyText.text = "Value Stashed: " + totalMoneyScore.ToString("C", CultureInfo.CurrentCulture);
+        moneyCarriedText.text = "Value Carried: " + moneyCaried.ToString("C", CultureInfo.CurrentCulture);
     }
 
     /// <summary>
@@ -168,12 +171,12 @@ public class GameController : MonoBehaviour
     /// </summary>
     public void UpdateText()
     {
-        totalMoneyText.text = "$ Gained: " + TextChange(totalMoneyScore);
-        moneyCarriedText.text = "$ Carried " + TextChange(moneyCaried);
+        totalMoneyText.text = "Value Stashed: " + totalMoneyScore.ToString("C", CultureInfo.CurrentCulture);
+        moneyCarriedText.text = "Value Carried: " + moneyCaried.ToString("C", CultureInfo.CurrentCulture);
     }
 
 
-    string TextChange(float money)
+    /*string TextChange(float money)
     {
         if (totalMoneyScore / 1000000000 >= 1)
         {
@@ -188,7 +191,7 @@ public class GameController : MonoBehaviour
             return (money / 1000).ToString("F2") + "K";
         }
         return money.ToString();
-    }
+    }*/
     /// <summary>
     /// Changes scenes
     /// </summary>
