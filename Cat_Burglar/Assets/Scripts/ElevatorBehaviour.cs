@@ -19,7 +19,7 @@ public class ElevatorBehaviour : MonoBehaviour
     public void Update()
     {
         Vector3 clamping = platform.transform.position;
-        clamping.y = Mathf.Clamp(platform.transform.position.y, 0.2f, 8f);
+        clamping.y = Mathf.Clamp(platform.transform.position.y, bot.y, top.y);
         platform.transform.position = clamping;
 
         if ((direction == new Vector3(0, 1, 0) && platform.transform.position.y >= top.y) || (direction == new Vector3(0, -1, 0) && platform.transform.position.y <= bot.y))

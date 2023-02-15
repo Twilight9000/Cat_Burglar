@@ -118,7 +118,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 4
-  moneyValue: 600
+  moneyValue: 650
   triggersShutdown: 1
   isStolen: 0
-  myRB: {fileID: 0}

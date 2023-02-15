@@ -45,7 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xLowerBound: -360
-  yLowerBound: 500
-  xUpperBound: 360
-  yUpperBound: 500
-  looksToZero: 1
+  yLeftBound: 0
+  xUpperBound: 67
+  yRightBound: 0
+  indicatorYPos: 0
+  looksTo0: 0
+  looksTo90: 0
+  looksTo180: 0
+  looksToNegative90: 0

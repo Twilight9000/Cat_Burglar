@@ -18,6 +18,8 @@ public class EscapeDoorBehaviour : MonoBehaviour
         {
             //loads the end scene
             PlayerPrefs.SetFloat("Money", GameObject.Find("GameController").GetComponent<GameController>().totalMoneyScore);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             SceneManager.LoadScene("EndScene");
             Debug.Log("escaped");
 

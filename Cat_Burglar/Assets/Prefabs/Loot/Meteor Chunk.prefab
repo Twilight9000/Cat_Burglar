@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 4
-  moneyValue: 500
+  moneyValue: 750
   triggersShutdown: 1
   isStolen: 0
 --- !u!54 &-5942718409306628249
