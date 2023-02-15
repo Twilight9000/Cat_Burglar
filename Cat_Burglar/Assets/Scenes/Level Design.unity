@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276797, g: 0.2158917, b: 0.29782546, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1960,24 +1960,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 226987586693183223, guid: 29c6a91ea80b3f34d8e2c8ec4106a665, type: 3}
   m_PrefabInstance: {fileID: 339564613}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &339564615 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 226987586693016279, guid: 29c6a91ea80b3f34d8e2c8ec4106a665, type: 3}
-  m_PrefabInstance: {fileID: 339564613}
-  m_PrefabAsset: {fileID: 0}
---- !u!135 &339564616
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339564615}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.21167278
-  m_Center: {x: 0, y: 0, z: 0.16833997}
 --- !u!1 &356363435 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1642177508913848927, guid: c18c2fd8fdf9b3a42a4e56adec673079, type: 3}
@@ -4063,10 +4045,6 @@ PrefabInstance:
     - target: {fileID: 5223201463566523491, guid: 93b9d0ec91ad8f442b541a209ae21aac, type: 3}
       propertyPath: m_Name
       value: Crystal Shard
-      objectReference: {fileID: 0}
-    - target: {fileID: 5966393206205771633, guid: 93b9d0ec91ad8f442b541a209ae21aac, type: 3}
-      propertyPath: m_Constraints
-      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93b9d0ec91ad8f442b541a209ae21aac, type: 3}
@@ -7395,24 +7373,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 399191275192579765, guid: 5d63a0c8c7fe9f04796e5fb1a3f6e8d2, type: 3}
   m_PrefabInstance: {fileID: 968711706}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &968711708 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 399191275192871573, guid: 5d63a0c8c7fe9f04796e5fb1a3f6e8d2, type: 3}
-  m_PrefabInstance: {fileID: 968711706}
-  m_PrefabAsset: {fileID: 0}
---- !u!135 &968711709
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 968711708}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.0969285
-  m_Center: {x: 0, y: -0.00000002980233, z: 0.09559687}
 --- !u!1001 &970023314
 PrefabInstance:
   m_ObjectHideFlags: 0
