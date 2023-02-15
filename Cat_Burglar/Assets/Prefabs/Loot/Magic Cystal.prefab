@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 226987586694951959}
   - component: {fileID: 226987586702530839}
   - component: {fileID: 1639444458412957656}
+  - component: {fileID: 5256488786670741948}
+  - component: {fileID: 8691013960447974797}
   m_Layer: 0
   m_Name: Magic Cystal
   m_TagString: Untagged
@@ -121,3 +123,32 @@ MonoBehaviour:
   moneyValue: 650
   triggersShutdown: 1
   isStolen: 0
+--- !u!54 &5256488786670741948
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226987586693016279}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!135 &8691013960447974797
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226987586693016279}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.21167278
+  m_Center: {x: 0, y: 0, z: 0.16833997}
