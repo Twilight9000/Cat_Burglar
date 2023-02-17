@@ -15,6 +15,7 @@ TagManager:
   - CatCam
   - SkyCam
   - Red Light
+  - Ball
   layers:
   - Default
   - TransparentFX
