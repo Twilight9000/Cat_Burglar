@@ -32,6 +32,8 @@ public class GameController : MonoBehaviour
     /// List of red lights in the game. Auto-populates at Start().
     /// </summary>
     private GameObject[] redLightsList;
+    private RedLightBehavior[] rlbs;
+    private GameObject dot;
 
     public GameObject catCam;
     public GameObject skyCam;
@@ -43,6 +45,8 @@ public class GameController : MonoBehaviour
 
     [Tooltip("current money amount in inventory")]
     public float moneyCaried;
+
+    public bool shutdown = false;
 
     /// <summary>
     /// Makes sure the pause and win items are set to false.
@@ -68,6 +72,15 @@ public class GameController : MonoBehaviour
             guardsList = GameObject.FindGameObjectsWithTag("Guard");
             securityCamerasList = GameObject.FindGameObjectsWithTag("Security Camera");
             redLightsList = GameObject.FindGameObjectsWithTag("Red Light");
+            rlbs = new RedLightBehavior[redLightsList.Length];
+
+            for (int x = 0; x < redLightsList.Length; x++)
+            {
+                rlbs[x] = redLightsList[x].GetComponent<RedLightBehavior>();
+            }
+
+            dot = GameObject.Find("T H E D O T");
+            
             //catCam = GameObject.FindGameObjectWithTag("CatCam");
             //skyCam = GameObject.FindGameObjectWithTag("SkyCam");
 
@@ -124,6 +137,11 @@ public class GameController : MonoBehaviour
             catCam.SetActive(false);
             skyCam.SetActive(false);
             whichOtherCam = 1;
+        }
+
+        if (shutdown)
+        {
+            RedLightCheck();
         }
     }
 
@@ -231,6 +249,7 @@ public class GameController : MonoBehaviour
             redlLight.SetActive(true);
         }
 
+        shutdown = true;
     }
 
     public IEnumerator WeightLimitReached()
@@ -240,5 +259,19 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         WeightLimitMenu.SetActive(false);
+    }
+
+    public void RedLightCheck()
+    {
+        for (int x = 0; x < rlbs.Length; x++)
+        {
+            if (rlbs[x].dotSeen)
+            {
+                dot.tag = "Untagged";
+                return;
+            }
+        }
+
+        dot.tag = "Dot";
     }
 }

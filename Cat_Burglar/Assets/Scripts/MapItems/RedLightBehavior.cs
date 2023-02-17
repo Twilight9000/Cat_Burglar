@@ -17,11 +17,12 @@ public class RedLightBehavior : MonoBehaviour
 {
     public GameObject dot;
     public Light spLight;
+    public bool dotSeen;
     public float maxAngle;
     public float range;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         dot = GameObject.Find("T H E D O T");
         spLight = transform.GetChild(0).gameObject.GetComponent<Light>();
@@ -36,14 +37,25 @@ public class RedLightBehavior : MonoBehaviour
 
         if (Vector3.Angle(transform.forward, dot.transform.position - transform.position) < maxAngle)
         {
-            if (Physics.Raycast(transform.position, dot.transform.position - transform.position, out hit, range) && hit.collider.gameObject == dot)
+            if (Physics.Raycast(transform.position, dot.transform.position - transform.position, out hit, range))
             {
-                dot.tag = "Untagged";
+                if (hit.collider.gameObject == dot)
+                {
+                    dotSeen = true;
+                }
+                else
+                {
+                    dotSeen = false;
+                }
+            }
+            else
+            {
+                dotSeen = false;
             }
         }
-        else if (dot.CompareTag("Untagged"))
+        else
         {
-            dot.tag = "Dot";
+            dotSeen = true;
         }
     }
 }
