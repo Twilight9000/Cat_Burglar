@@ -55,7 +55,7 @@ public class RedLightBehavior : MonoBehaviour
         }
         else
         {
-            dotSeen = true;
+            dotSeen = false;
         }
     }
 }
