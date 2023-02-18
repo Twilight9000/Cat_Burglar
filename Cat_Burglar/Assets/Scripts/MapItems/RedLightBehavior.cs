@@ -31,7 +31,7 @@ public class RedLightBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         RaycastHit hit;
 
@@ -43,14 +43,6 @@ public class RedLightBehavior : MonoBehaviour
                 {
                     dotSeen = true;
                 }
-                else
-                {
-                    dotSeen = false;
-                }
-            }
-            else
-            {
-                dotSeen = false;
             }
         }
         else

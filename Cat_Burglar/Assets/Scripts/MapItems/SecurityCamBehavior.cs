@@ -15,6 +15,7 @@ using UnityEngine;
 
 public class SecurityCamBehavior : MonoBehaviour, IShinable
 {
+    public GameController gc;
     public GameObject cat;
     public Light spLight;
     public float maxAngle;

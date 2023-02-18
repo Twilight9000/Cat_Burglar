@@ -82,11 +82,11 @@ public class LaserBehaviour : MonoBehaviour
 
                     case "Disablable":
                         hit.collider.gameObject.GetComponent<IShinable>().Disable();
-                        dot.transform.position = hit.point + -ray.direction * 0.1f;
+                        dot.transform.position = hit.point + hit.normal * 0.05f;
                         break;
 
                     default:
-                        dot.transform.position = hit.point + -ray.direction * 0.1f;
+                        dot.transform.position = hit.point + hit.normal * 0.05f;
                         break;
                 }
 
@@ -147,11 +147,11 @@ public class LaserBehaviour : MonoBehaviour
 
                 case "Disablable":
                     hit.collider.gameObject.GetComponent<IShinable>().Disable();
-                    dot.transform.position = hit.point + -ray.direction * 0.1f;
+                    dot.transform.position = hit.point + hit.normal * 0.05f;
                     break;
 
                 default:
-                    dot.transform.position = hit.point + -ray.direction * 0.05f;
+                    dot.transform.position = hit.point + hit.normal * 0.05f;
                     break;
             }
         }

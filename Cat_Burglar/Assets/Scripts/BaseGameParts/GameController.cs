@@ -21,7 +21,8 @@ public class GameController : MonoBehaviour
     /// <summary>
     /// A list of the guards in the game. Auto-populates at Start().
     /// </summary>
-    private GameObject[] guardsList;
+    public GameObject[] guardsList;
+    public GuardBehaviour[] gbs;
 
     /// <summary>
     /// A list of the security cameras in the game. Auto-populates at Start().
@@ -31,9 +32,9 @@ public class GameController : MonoBehaviour
     /// <summary>
     /// List of red lights in the game. Auto-populates at Start().
     /// </summary>
-    private GameObject[] redLightsList;
-    private RedLightBehavior[] rlbs;
-    private GameObject dot;
+    public GameObject[] redLightsList;
+    public RedLightBehavior[] rlbs;
+    public GameObject dot;
 
     public GameObject catCam;
     public GameObject skyCam;
@@ -45,8 +46,6 @@ public class GameController : MonoBehaviour
 
     [Tooltip("current money amount in inventory")]
     public float moneyCaried;
-
-    public bool shutdown = false;
 
     /// <summary>
     /// Makes sure the pause and win items are set to false.
@@ -70,6 +69,12 @@ public class GameController : MonoBehaviour
             GameStateManager.Instance.SetState(GameState.Gameplay);
 
             guardsList = GameObject.FindGameObjectsWithTag("Guard");
+
+            for (int x = 0; x < guardsList.Length; x++)
+            {
+                gbs[x] = guardsList[x].GetComponent<GuardBehaviour>();
+            }
+
             securityCamerasList = GameObject.FindGameObjectsWithTag("Security Camera");
             redLightsList = GameObject.FindGameObjectsWithTag("Red Light");
             rlbs = new RedLightBehavior[redLightsList.Length];
@@ -139,10 +144,7 @@ public class GameController : MonoBehaviour
             whichOtherCam = 1;
         }
 
-        if (shutdown)
-        {
-            RedLightCheck();
-        }
+        RedLightCheck();
     }
 
     /// <summary>
@@ -248,8 +250,6 @@ public class GameController : MonoBehaviour
         {
             redlLight.SetActive(true);
         }
-
-        shutdown = true;
     }
 
     public IEnumerator WeightLimitReached()

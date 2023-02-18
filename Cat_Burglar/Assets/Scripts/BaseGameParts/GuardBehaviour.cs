@@ -66,4 +66,8 @@ public class GuardBehaviour : MonoBehaviour
         }
     }
 
+    public void CatAlert(Vector3 catPos)
+    {
+
+    }
 }
