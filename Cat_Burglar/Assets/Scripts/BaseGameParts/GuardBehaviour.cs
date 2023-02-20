@@ -23,17 +23,16 @@ public class GuardBehaviour : MonoBehaviour
     void Update()
     {
         NavMeshHit hit;
-        if (!(gnAgent.Raycast(GameObject.Find("Origami_Cat_Model").transform.position, out hit)) && 
-            Vector3.Distance(GameObject.Find("Origami_Cat_Model").transform.position, transform.position) < 15)
+        if ((!(gnAgent.Raycast(GameObject.Find("Origami_Cat_Model").transform.position, out hit)) && Vector3.Distance(GameObject.Find("Origami_Cat_Model").transform.position, transform.position) < 20))
         {
             target = GameObject.Find("Origami_Cat_Model").transform;
         }
-        /*else
+        else
         {
-            target = guardPoints[listIndex];
-        }*/
+            target = null;
+        }
 
-        if (!(target == null))
+        if ((target == GameObject.Find("Origami_Cat_Model").transform))
         {
             gnAgent.isStopped = false;
             destination = target.position;

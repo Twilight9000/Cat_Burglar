@@ -12,6 +12,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SecurityCamBehavior : MonoBehaviour, IShinable
 {
@@ -23,35 +24,47 @@ public class SecurityCamBehavior : MonoBehaviour, IShinable
 
     public float disableTime;
 
-    //public GuardBehavior[] guards;
+    public GameObject[] guards;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        cat = GameObject.Find("ORIGAMI_Cat");
+        cat = GameObject.FindGameObjectWithTag("Player");
         spLight = transform.GetChild(0).gameObject.GetComponent<Light>();
         spLight.spotAngle = maxAngle * 2;
         spLight.range = camRange + 5;
+        guards = GameObject.FindGameObjectsWithTag("Guard");
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        if (Vector3.Angle(transform.forward, cat.transform.position - transform.position) < maxAngle && spLight.enabled)
-        {
-            RaycastHit hit;
+        Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
+        Debug.DrawRay(transform.position, forward, Color.green);
 
+        RaycastHit hit;
+
+        if (Vector3.Angle(transform.forward, cat.transform.position - transform.position) < maxAngle)
+        {
             if (Physics.Raycast(transform.position, cat.transform.position - transform.position, out hit, camRange))
             {
                 if (hit.collider.gameObject == cat)
                 {
-                    /*for (int x = 0; x < guards.Length; x++)
+                    Debug.Log("hi");
+                    for (int x = 0; x < guards.Length; x++)
                     {
-                        guards[x].CatAlert(hit.point);
-                    }*/
+                        guards[x].GetComponent<NavMeshAgent>().destination = GameObject.Find("Origami_Cat_Model").transform.position;
+                    }
                 }
             }
         }
+        /*else
+        {
+            for (int x = 0; x < guards.Length; x++)
+            {
+                guards[x].GetComponent<NavMeshAgent>().destination = null;
+            }
+        }*/
     }
 
     public IEnumerator DisableTimer()
