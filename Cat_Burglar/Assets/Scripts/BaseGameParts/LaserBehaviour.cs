@@ -72,21 +72,17 @@ public class LaserBehaviour : MonoBehaviour
 
                 switch (hit.collider.gameObject.tag)
                 {
-                    case "StopDot":
-                        dot.transform.position = new Vector3(0, -100, 0);
-                        break;
-
                     case "Reflective":
                         ReflectDot(ray.direction, hit.normal, hit.point);
                         break;
 
                     case "Disablable":
                         hit.collider.gameObject.GetComponent<IShinable>().Disable();
-                        dot.transform.position = hit.point + hit.normal * 0.05f;
+                        dot.transform.position = hit.point;
                         break;
 
                     default:
-                        dot.transform.position = hit.point + hit.normal * 0.05f;
+                        dot.transform.position = hit.point;
                         break;
                 }
 
@@ -137,21 +133,17 @@ public class LaserBehaviour : MonoBehaviour
             //Except it loops here if it should reflect again
             switch (hit.collider.gameObject.tag)
             {
-                case "StopDot":
-                    dot.transform.position = new Vector3(0, -100, 0);
-                    break;
-
                 case "Reflective":
                     ReflectDot(ray.direction, hit.normal, hit.point);
                     break;
 
                 case "Disablable":
                     hit.collider.gameObject.GetComponent<IShinable>().Disable();
-                    dot.transform.position = hit.point + hit.normal * 0.05f;
+                    dot.transform.position = hit.point;
                     break;
 
                 default:
-                    dot.transform.position = hit.point + hit.normal * 0.05f;
+                    dot.transform.position = hit.point;
                     break;
             }
         }
