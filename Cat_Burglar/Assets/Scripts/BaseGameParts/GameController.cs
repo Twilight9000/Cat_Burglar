@@ -70,10 +70,10 @@ public class GameController : MonoBehaviour
 
             guardsList = GameObject.FindGameObjectsWithTag("Guard");
 
-            for (int x = 0; x < guardsList.Length; x++)
-            {
-                gbs[x] = guardsList[x].GetComponent<GuardBehaviour>();
-            }
+            //for (int x = 0; x < guardsList.Length; x++)
+            //{
+            //   // gbs[x] = guardsList[x].GetComponent<GuardBehaviour>();
+            //}
 
             securityCamerasList = GameObject.FindGameObjectsWithTag("Security Camera");
             redLightsList = GameObject.FindGameObjectsWithTag("Red Light");
