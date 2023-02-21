@@ -2351,9 +2351,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eeb5dc026fdf4b488bc7ae0138ab719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
+  m_AgentTypeID: -1372625422
   m_StartPoint: {x: 0, y: -17.5, z: -7.5}
-  m_EndPoint: {x: 0, y: 0, z: -0.8}
+  m_EndPoint: {x: 0, y: 0.46320152, z: -0.733984}
   m_Width: 17.5
   m_CostModifier: -1
   m_Bidirectional: 0
@@ -3872,7 +3872,7 @@ MonoBehaviour:
   m_EndPoint: {x: 0, y: 0, z: -9}
   m_Width: 0
   m_CostModifier: -1
-  m_Bidirectional: 0
+  m_Bidirectional: 1
   m_AutoUpdatePosition: 0
   m_Area: 0
 --- !u!114 &669896001
