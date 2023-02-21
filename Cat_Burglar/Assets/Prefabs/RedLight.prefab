@@ -207,5 +207,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dot: {fileID: 0}
   spLight: {fileID: 0}
+  dotSeen: 0
   maxAngle: 15
-  range: 20
+  range: 30
